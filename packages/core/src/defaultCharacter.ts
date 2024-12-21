@@ -1,4 +1,5 @@
 import { Character, ModelProviderName } from "./types.ts";
+import { Clients } from '@ai16z/eliza'
 
 export const defaultCharacter: Character = {
     name: "Eliza",
