@@ -4,10 +4,10 @@ export const defaultCharacter: Character = {
     name: "Eliza",
     username: "eliza",
     plugins: [],
-    // clients: [],
-    clients: [Clients.TELEGRAM],
-    // modelProvider: ModelProviderName.LLAMALOCAL,
-    modelProvider: ModelProviderName.CLAUDE_VERTEX,
+    clients: [],
+    // clients: [Clients.TELEGRAM],
+    modelProvider: ModelProviderName.LLAMALOCAL,
+    // modelProvider: ModelProviderName.CLAUDE_VERTEX,
     settings: {
         secrets: {},
         voice: {
