@@ -53,10 +53,10 @@ export const currentNewsAction: Action = {
         const response = await fetch(
             `https://newsapi.org/v2/everything?q=${encodeURIComponent(
                 searchTerm
-            )}&apiKey=${apiKey}&pageSize=5`
+            )}&apiKey=${apiKey}&pageSize=10`
         );
         const data = await response.json();
-        const news = data.articles.slice(0,5).map((article) => `${article.title}\n${article.description}\n${article.url}`).join("\n");
+        const news = data.articles.slice(0,10).map((article) => `${article.title}\n${article.description}\n`).join("\n");
 
         const responseText = `
 The current news for ${searchTerm} is:
