@@ -174,6 +174,7 @@ export class SqliteDatabaseAdapter
     }
 
     async getMemoryById(memoryId: UUID): Promise<Memory | null> {
+        // console.log('getMemoryById() memoryId: ', memoryId)
         const sql = "SELECT * FROM memories WHERE id = ?";
         const stmt = this.db.prepare(sql);
         stmt.bind([memoryId]);
