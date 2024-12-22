@@ -1,4 +1,4 @@
-[@ai16z/eliza v0.1.4-alpha.3](../index.md) / Models
+[@ai16z/eliza v0.1.5-alpha.5](../index.md) / Models
 
 # Type Alias: Models
 
@@ -83,6 +83,18 @@ Model configurations by provider
 ### volengine
 
 > **volengine**: [`Model`](Model.md)
+
+### nanogpt
+
+> **nanogpt**: [`Model`](Model.md)
+
+### hyperbolic
+
+> **hyperbolic**: [`Model`](Model.md)
+
+### venice
+
+> **venice**: [`Model`](Model.md)
 
 ## Defined in
 
