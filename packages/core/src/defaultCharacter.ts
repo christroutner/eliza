@@ -1,13 +1,15 @@
-import { Character, ModelProviderName } from "./types.ts";
+import { Character, ModelProviderName, Plugin, Clients } from "./types.ts";
+// import { bootstrapPlugin } from "../../plugin-bootstrap";
+import { bootstrapPlugin } from "@ai16z/plugin-bootstrap";
 
 export const defaultCharacter: Character = {
     name: "Eliza",
     username: "eliza",
-    plugins: [],
-    clients: [],
-    // clients: [Clients.TELEGRAM],
-    modelProvider: ModelProviderName.LLAMALOCAL,
-    // modelProvider: ModelProviderName.CLAUDE_VERTEX,
+    plugins: [bootstrapPlugin as Plugin],
+    // clients: [],
+    clients: [Clients.TELEGRAM],
+    // modelProvider: ModelProviderName.LLAMALOCAL,
+    modelProvider: ModelProviderName.CLAUDE_VERTEX,
     settings: {
         secrets: {},
         voice: {
