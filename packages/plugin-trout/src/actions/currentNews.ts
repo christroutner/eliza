@@ -64,9 +64,11 @@ ${news}
 `
         // Print out the raw news items to the console.
         // console.log('CURRENT_NEWS responseText: ', responseText)
+        // console.log('_message: ', _message)
 
         // Create a new memory with the news items.
         const newMemory: Memory = {
+          id: _message.id,
           userId: _message.agentId,
           agentId: _message.agentId,
           roomId: _message.roomId,
@@ -76,6 +78,7 @@ ${news}
             source: _message.content?.source
           },
         }
+        // console.log('newMemory: ', newMemory)
 
         // Save the memory to the database.
         await _runtime.messageManager.createMemory(newMemory)
@@ -88,7 +91,7 @@ ${news}
         const summary = await generateText({
           runtime: _runtime,
           context: summaryTemplate,
-          modelClass: ModelClass.MEDIUM,
+          modelClass: ModelClass.SMALL,
           stop: ["\n"] 
         })
         // console.log('\nNew summary: ', summary)

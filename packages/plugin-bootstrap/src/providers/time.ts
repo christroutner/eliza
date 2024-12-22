@@ -13,7 +13,10 @@ const timeProvider: Provider = {
         const humanReadable = new Intl.DateTimeFormat("en-US", options).format(
             currentDate
         );
-        return `The current date and time in UTC is ${humanReadable}. The current time in PST is ${currentDate.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}. Please use this as your reference for any time-based operations or responses.`;
+        const theTime = `The current date and time in UTC is ${humanReadable}. The current time in PST is ${currentDate.toLocaleTimeString('en-US', { timeZone: 'America/Los_Angeles' })}. Please use this as your reference for any time-based operations or responses.`;
+        console.log('theTime: ', theTime)
+
+        return theTime;
     },
 };
 export { timeProvider };
