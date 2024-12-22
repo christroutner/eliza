@@ -37,6 +37,7 @@ import { evmPlugin } from "@ai16z/plugin-evm";
 import { createNodePlugin } from "@ai16z/plugin-node";
 import { solanaPlugin } from "@ai16z/plugin-solana";
 import { teePlugin } from "@ai16z/plugin-tee";
+import { troutPlugin } from "@chris.troutner/plugin-trout";
 import Database from "better-sqlite3";
 import fs from "fs";
 import path from "path";
@@ -390,6 +391,7 @@ export function createAgent(
                 : []),
             getSecret(character, "WALLET_SECRET_SALT") ? teePlugin : null,
             getSecret(character, "ALCHEMY_API_KEY") ? goatPlugin : null,
+            troutPlugin,
         ].filter(Boolean),
         providers: [],
         actions: [],
