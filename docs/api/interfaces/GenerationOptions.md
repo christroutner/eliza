@@ -12,7 +12,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1041](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1041)
+[packages/core/src/generation.ts:1044](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1044)
 
 ***
 
@@ -22,7 +22,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1042](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1042)
+[packages/core/src/generation.ts:1045](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1045)
 
 ***
 
@@ -32,7 +32,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1043](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1043)
+[packages/core/src/generation.ts:1046](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1046)
 
 ***
 
@@ -42,7 +42,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1044](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1044)
+[packages/core/src/generation.ts:1047](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1047)
 
 ***
 
@@ -52,7 +52,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1045](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1045)
+[packages/core/src/generation.ts:1048](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1048)
 
 ***
 
@@ -62,7 +62,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1046](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1046)
+[packages/core/src/generation.ts:1049](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1049)
 
 ***
 
@@ -72,7 +72,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1047](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1047)
+[packages/core/src/generation.ts:1050](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1050)
 
 ***
 
@@ -82,7 +82,7 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1048](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1048)
+[packages/core/src/generation.ts:1051](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1051)
 
 ***
 
@@ -92,4 +92,4 @@ Configuration options for generating objects with a model.
 
 #### Defined in
 
-[packages/core/src/generation.ts:1049](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1049)
+[packages/core/src/generation.ts:1052](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L1052)
