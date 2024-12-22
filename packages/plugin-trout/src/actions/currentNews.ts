@@ -5,6 +5,8 @@ import {
     type Action,
     type State,
     type HandlerCallback,
+    generateText,
+    ModelClass,
 } from "@ai16z/eliza";
 
 export const currentNewsAction: Action = {
@@ -26,11 +28,25 @@ export const currentNewsAction: Action = {
         _state: State,
         _callback: HandlerCallback
     ): Promise<boolean> => {
-        // console.log('_runtime.character: ', _runtime.character)
 
         const apiKey = process.env.NEWS_API_KEY;
-        
-        const searchTerm = "Roger Ver";
+
+        // A Prompt for the AI to retrieve the search term from the user's message.
+        const template = `
+        Extract the search term from the message provided by the user. The message is:
+        ${_message.content.text}
+        Only respond with the search term. Do not include any other text.
+        `
+
+        // Execute the prompt to get the search term.
+        const searchTerm = await generateText({
+          runtime: _runtime,
+          context: template,
+          modelClass: ModelClass.SMALL,
+          stop: ["\n"] 
+        })
+        console.log('CURRENT_NEWS searchTerm: ', searchTerm)
+
 
         // Call newsapi.org api with searchTerm
         // Return the first five results
@@ -42,13 +58,44 @@ export const currentNewsAction: Action = {
         const data = await response.json();
         const news = data.articles.slice(0,5).map((article) => `${article.title}\n${article.description}\n${article.url}`).join("\n");
 
-        _callback({
-            text: `
-                The current news for ${searchTerm} is:
-                ${news}
-                `,
-        });
-        
+        const responseText = `
+The current news for ${searchTerm} is:
+${news}
+`
+        // Print out the raw news items to the console.
+        // console.log('CURRENT_NEWS responseText: ', responseText)
+
+        // Create a new memory with the news items.
+        const newMemory: Memory = {
+          userId: _message.agentId,
+          agentId: _message.agentId,
+          roomId: _message.roomId,
+          content: {
+            text: responseText,
+            action: "CURRENT_NEWS_RESPONSE",
+            source: _message.content?.source
+          },
+        }
+
+        // Save the memory to the database.
+        await _runtime.messageManager.createMemory(newMemory)
+
+        // Generate a prompt for the AI to summarize the news
+        const summaryTemplate = `
+        Summarize the news for ${searchTerm} in a few sentences. The news is:
+        ${news}
+        `
+        const summary = await generateText({
+          runtime: _runtime,
+          context: summaryTemplate,
+          modelClass: ModelClass.MEDIUM,
+          stop: ["\n"] 
+        })
+        // console.log('\nNew summary: ', summary)
+
+        // Respond to the chat with a summary of the news.
+        _callback({text: summary});
+
         return true;
 
     },
