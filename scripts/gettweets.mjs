@@ -22,8 +22,10 @@ const TWEETS_FILE = "tweets.json";
             console.log("Logged in successfully!");
 
             // Fetch all tweets for the user "@realdonaldtrump"
-            const tweets = scraper.getTweets("pmarca", 2000);
+            const tweets = scraper.getTweets("christroutner", 2000);
 
+            console.log('tweets: ', tweets)
+            
             // Initialize an empty array to store the fetched tweets
             let fetchedTweets = [];
 
@@ -39,10 +41,11 @@ const TWEETS_FILE = "tweets.json";
 
             // Fetch and process tweets
             for await (const tweet of tweets) {
-                if (count < 1000) {
-                    count++;
-                    continue;
-                }
+                // console.log('tweet: ', tweet)
+                // if (count < 1000) {
+                //     count++;
+                //     continue;
+                // }
 
                 console.log("--------------------");
                 console.log("Tweet ID:", tweet.id);
