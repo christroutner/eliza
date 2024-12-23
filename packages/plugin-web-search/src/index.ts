@@ -38,6 +38,7 @@ const webSearch: Action = {
         options: any,
         callback: HandlerCallback
     ) => {
+
         elizaLogger.log("Composing state for message:", message);
         state = (await runtime.composeState(message)) as State;
         const userId = runtime.agentId;
