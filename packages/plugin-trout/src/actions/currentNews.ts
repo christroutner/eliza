@@ -117,7 +117,7 @@ ${news}
         [
             {
                 user: "{{user1}}",
-                content: { text: "Can you tell me what's happening with climate change?" },
+                content: { text: "Can you tell me what the current news is with climate change?" },
             },
             {
                 user: "{{agentName}}",
@@ -150,7 +150,7 @@ ${news}
         [
             {
                 user: "{{user1}}",
-                content: { text: "Have you heard anything new about quantum computing?" },
+                content: { text: "Have you heard anything in the news about quantum computing?" },
             },
             {
                 user: "{{agentName}}",
@@ -161,7 +161,7 @@ ${news}
         [
             {
                 user: "{{user1}}",
-                content: { text: "What's the latest on renewable energy?" },
+                content: { text: "What's the latest news on renewable energy?" },
             },
             {
                 user: "{{agentName}}",
