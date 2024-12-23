@@ -38,6 +38,7 @@ const webSearch: Action = {
         options: any,
         callback: HandlerCallback
     ) => {
+
         elizaLogger.log("Composing state for message:", message);
         state = (await runtime.composeState(message)) as State;
         const userId = runtime.agentId;
@@ -79,13 +80,13 @@ const webSearch: Action = {
             {
                 user: "{{user1}}",
                 content: {
-                    text: "Find the latest news about SpaceX launches.",
+                    text: "Do a search about SpaceX launches.",
                 },
             },
             {
                 user: "{{agentName}}",
                 content: {
-                    text: "Here is the latest news about SpaceX launches:",
+                    text: "Here are search results about SpaceX launches:",
                     action: "WEB_SEARCH",
                 },
             },
