@@ -5,8 +5,7 @@ export const messageCompletionFooter = `\nResponse format should be formatted in
 { "user": "{{agentName}}", "text": "string", "action": "string" }
 \`\`\``;
 
-export const shouldRespondFooter = `The available options are [RESPOND], [IGNORE], or [STOP]. Choose the most appropriate option.
-If {{agentName}} is talking too much, you can choose [IGNORE]
+export const shouldRespondFooter = `The available options are [RESPOND] or [STOP]. Choose the most appropriate option.
 
 Your response must include one of the options.`;
 

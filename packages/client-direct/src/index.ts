@@ -2,7 +2,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express, { Request as ExpressRequest } from "express";
 import multer, { File } from "multer";
-import { elizaLogger, generateCaption, generateImage, splitChunks } from "@ai16z/eliza";
+import { elizaLogger, generateCaption, generateImage, getEmbeddingZeroVector, splitChunks, UUID } from "@ai16z/eliza";
 import { composeContext } from "@ai16z/eliza";
 import { generateMessageResponse } from "@ai16z/eliza";
 import { messageCompletionFooter } from "@ai16z/eliza";
@@ -267,11 +267,16 @@ export class DirectClient {
             async (req: express.Request, res: express.Response) => {
               console.log("Received document upload.");
 
-              const agentId = req.params.agentId;
-              const roomId = stringToUuid(
-                  req.body.roomId ?? "default-room-" + agentId
-              );
-              const userId = stringToUuid(req.body.userId ?? "user");
+              console.log('req.body: ', req.body)
+
+              const agentId = req.params.agentId as UUID;
+            //   const roomId = stringToUuid(
+            //       req.body.roomId ?? "default-room-" + agentId
+            //   );
+            const roomId = req.body.roomId as UUID;
+            // const roomId = req.body.roomId;
+            //   const userId = stringToUuid(req.body.userId ?? "user");
+            const userId = req.body.userId as UUID;
 
               let runtime = this.agents.get(agentId);
 
@@ -289,6 +294,11 @@ export class DirectClient {
                   return;
               }
 
+
+              console.log('roomId: ', roomId)
+              console.log('userId: ', userId)
+              console.log('agentId: ', agentId)
+              
               await runtime.ensureConnection(
                   userId,
                   roomId,
@@ -320,7 +330,11 @@ export class DirectClient {
                   roomId,
                   content,
                   createdAt: Date.now(),
+                  embedding: getEmbeddingZeroVector(),
                 };
+
+                const tableName = runtime.messageManager.tableName;
+                console.log("Saving memory to table:", tableName);
 
                 // Save the memory to the database.
                 await runtime.messageManager.createMemory(memory);
