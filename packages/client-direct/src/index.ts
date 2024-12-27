@@ -2,7 +2,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import express, { Request as ExpressRequest } from "express";
 import multer, { File } from "multer";
-import { elizaLogger, generateCaption, generateImage } from "@ai16z/eliza";
+import { elizaLogger, generateCaption, generateImage, splitChunks } from "@ai16z/eliza";
 import { composeContext } from "@ai16z/eliza";
 import { generateMessageResponse } from "@ai16z/eliza";
 import { messageCompletionFooter } from "@ai16z/eliza";
@@ -135,6 +135,8 @@ export class DirectClient {
         this.app.post(
             "/:agentId/message",
             async (req: express.Request, res: express.Response) => {
+                console.log("Received message request");
+
                 const agentId = req.params.agentId;
                 const roomId = stringToUuid(
                     req.body.roomId ?? "default-room-" + agentId
@@ -243,6 +245,92 @@ export class DirectClient {
                 } else {
                     res.json([response]);
                 }
+            }
+        );
+
+        // API endpoint for uploading text documents for the agent to chunk and 
+        // store in its memory.
+        /*
+          Example usage:
+          const agentId = "b850bc30-45f8-0041-a00a-83df46d8555d";
+          const response = await axios.post(http://localhost:3000/${agentId}/memorizeDocument, {
+            userId: "ffbb4daf-5149-0902-b675-30e9ab20706f",
+            roomId: "06cc2fa6-d02a-09a1-a96d-418f707919e8",
+            name: "Chris",
+            userName: "christroutner",
+            text: "This is the document text that I want the agent to memorize"
+          });
+          console.log(response.data);
+        */
+        this.app.post(
+            "/:agentId/memorizeDocument",
+            async (req: express.Request, res: express.Response) => {
+              console.log("Received document upload.");
+
+              const agentId = req.params.agentId;
+              const roomId = stringToUuid(
+                  req.body.roomId ?? "default-room-" + agentId
+              );
+              const userId = stringToUuid(req.body.userId ?? "user");
+
+              let runtime = this.agents.get(agentId);
+
+              // if runtime is null, look for runtime with the same name
+              if (!runtime) {
+                  runtime = Array.from(this.agents.values()).find(
+                      (a) =>
+                          a.character.name.toLowerCase() ===
+                          agentId.toLowerCase()
+                  );
+              }
+
+              if (!runtime) {
+                  res.status(404).send("Agent not found");
+                  return;
+              }
+
+              await runtime.ensureConnection(
+                  userId,
+                  roomId,
+                  req.body.userName,
+                  req.body.name,
+                  "direct"
+              );
+
+              const text = req.body.text;
+
+              // Split the text into chunks
+              const chunks = await splitChunks(text);
+
+              // Loop through each chunk and create a memory for it.
+              for (const chunk of chunks) {
+                // Create a content object for the chunk
+                const content: Content = {
+                  text: chunk,
+                  attachments: [],
+                  source: "direct",
+                  inReplyTo: undefined,
+                };
+
+                // Create a memory object for the chunk
+                const memory: Memory = {
+                  id: stringToUuid(Date.now().toString()),
+                  agentId: runtime.agentId,
+                  userId,
+                  roomId,
+                  content,
+                  createdAt: Date.now(),
+                };
+
+                // Save the memory to the database.
+                await runtime.messageManager.createMemory(memory);
+              }
+
+              res.json({ 
+                success: true,
+                chunks: chunks.length
+              });
+
             }
         );
 
@@ -387,6 +475,7 @@ export class DirectClient {
     }
 
     public start(port: number) {
+        console.log(`Starting server on port ${port}`);
         this.server = this.app.listen(port, () => {
             elizaLogger.success(`Server running at http://localhost:${port}/`);
         });
