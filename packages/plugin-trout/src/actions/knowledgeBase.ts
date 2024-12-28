@@ -18,12 +18,19 @@ export const knowledgeBaseAction: Action = {
     name: "KNOWLEDGE_BASE",
     similes: [
         "KNOWLEDGE",
+        "DOCUMENT_DATABASE",
+        "KNOWLEDGEBASE",
+        "KNOWLEDGE_BASE",
+        "KNOWLEDGE_BASE_ACTION",
+        "KNOWLEDGE_BASE_RESPONSE",
+        "KNOWLEDGE_BASE_SEARCH",
+        "KNOWLEDGE_BASE_SEARCH_RESPONSE",
     ],
     validate: async (_runtime: IAgentRuntime, _message: Memory) => {
         return true;
     },
     description:
-        "Search the agent's knowledge base for relevant information.",
+        "Search the agent's knowledge base and document database for relevant information.",
     handler: async (
         _runtime: IAgentRuntime,
         _message: Memory,
@@ -60,7 +67,7 @@ export const knowledgeBaseAction: Action = {
 
       try {
         const memories = await _runtime.databaseAdapter.getMemories({
-          tableName: "messages",
+          tableName: "documents",
           agentId: _message.agentId,
           roomId: _message.roomId,
           unique: false

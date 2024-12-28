@@ -333,11 +333,13 @@ export class DirectClient {
                   embedding: getEmbeddingZeroVector(),
                 };
 
-                const tableName = runtime.messageManager.tableName;
+                // const tableName = runtime.messageManager.tableName;
+                const tableName = runtime.documentsManager.tableName
                 console.log("Saving memory to table:", tableName);
 
                 // Save the memory to the database.
-                await runtime.messageManager.createMemory(memory);
+                // await runtime.messageManager.createMemory(memory);
+                await runtime.documentsManager.createMemory(memory);
               }
 
               res.json({ 
