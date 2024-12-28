@@ -42,40 +42,50 @@ export const knowledgeBaseAction: Action = {
 
 
       const userPrompt = _message.content.text;
+      console.log('userPrompt: ', userPrompt)
+
+      console.log('agentId: ', _message.agentId)
+      console.log('roomId: ', _message.roomId)
+
+      // Get a list of existing memories. Used for comparison.
+      try {
+        const memories1 = await _runtime.databaseAdapter.getMemories({
+          tableName: "documents",
+          agentId: _message.agentId,
+          roomId: _message.roomId,
+          unique: false
+        })
+        console.log('memories1: ', memories1)
+      } catch (error) {
+        console.error('Error getting memories: ', error)
+      }
 
       // Generate an embedding for the user prompt
       const embedding = await embed(_runtime, userPrompt);
+      console.log('embedding.length: ', embedding.length)
 
       // Search the knowledge base for the embedding
-      // const memories = await _runtime.databaseAdapter.searchMemoriesByEmbedding(embedding, {
-      //   match_threshold: 0.5,
-      //   count: 10,
-      //   tableName: "messages"
-      // })
-      // console.log('memories: ', memories)
+      const memories = await _runtime.databaseAdapter.searchMemoriesByEmbedding(embedding, {
+        match_threshold: 0.5,
+        count: 10,
+        tableName: "documents",
+        agentId: _message.agentId,
+        roomId: _message.roomId,
+      })
+      console.log('memories: ', memories)
 
       // const memories = await _runtime.databaseAdapter.searchMemories({
       //   embedding: embedding,
       //   match_threshold: 0.5,
       //   match_count: 10,
-      //   tableName: "messages",
+      //   tableName: "documents",
       //   agentId: _message.agentId,
       //   roomId: _message.roomId,
       //   unique: false
       // })
       // console.log('memories: ', memories)
 
-      try {
-        const memories = await _runtime.databaseAdapter.getMemories({
-          tableName: "documents",
-          agentId: _message.agentId,
-          roomId: _message.roomId,
-          unique: false
-        })
-        console.log('memories: ', memories)
-      } catch (error) {
-        console.error('Error getting memories: ', error)
-      }
+      
       
 
 
