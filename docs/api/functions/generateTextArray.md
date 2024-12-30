@@ -28,4 +28,4 @@ Promise resolving to an array of strings parsed from the model's response
 
 ## Defined in
 
-[packages/core/src/generation.ts:642](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L642)
+[packages/core/src/generation.ts:643](https://github.com/christroutner/eliza/blob/main/packages/core/src/generation.ts#L643)

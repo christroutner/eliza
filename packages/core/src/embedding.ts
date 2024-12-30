@@ -169,8 +169,8 @@ export async function embed(runtime: IAgentRuntime, input: string) {
 
     const config = getEmbeddingConfig();
     const isNode = typeof process !== "undefined" && process.versions?.node;
-    console.log('isNode: ', isNode)
-    console.log('config.provider: ', config.provider)
+    // console.log('isNode: ', isNode)
+    // console.log('config.provider: ', config.provider)
 
     // Determine which embedding path to use
     if (config.provider === "OpenAI") {
