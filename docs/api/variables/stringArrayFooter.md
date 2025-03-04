@@ -6,4 +6,4 @@
 
 ## Defined in
 
-[packages/core/src/parsing.ts:41](https://github.com/christroutner/eliza/blob/main/packages/core/src/parsing.ts#L41)
+[packages/core/src/parsing.ts:40](https://github.com/christroutner/eliza/blob/main/packages/core/src/parsing.ts#L40)

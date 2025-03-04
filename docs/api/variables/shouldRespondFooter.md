@@ -2,7 +2,7 @@
 
 # Variable: shouldRespondFooter
 
-> `const` **shouldRespondFooter**: "The available options are \[RESPOND\], \[IGNORE\], or \[STOP\]. Choose the most appropriate option.\nIf \{\{agentName\}\} is talking too much, you can choose \[IGNORE\]\n\nYour response must include one of the options."
+> `const` **shouldRespondFooter**: "The available options are \[RESPOND\] or \[STOP\]. Choose the most appropriate option.\n\nYour response must include one of the options."
 
 ## Defined in
 
