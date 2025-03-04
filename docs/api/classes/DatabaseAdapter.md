@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / DatabaseAdapter
+[@elizaos/core v0.25.8](../index.md) / DatabaseAdapter
 
 # Class: `abstract` DatabaseAdapter\<DB\>
 
@@ -45,7 +45,7 @@ Number of successful attempts needed to close circuit (defaults to 3)
 
 #### Defined in
 
-[packages/core/src/database.ts:46](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L46)
+[packages/core/src/database.ts:47](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L47)
 
 ## Properties
 
@@ -61,7 +61,7 @@ The database instance.
 
 #### Defined in
 
-[packages/core/src/database.ts:23](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L23)
+[packages/core/src/database.ts:24](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L24)
 
 ***
 
@@ -79,7 +79,7 @@ The circuit breaker has three states:
 
 #### Defined in
 
-[packages/core/src/database.ts:36](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L36)
+[packages/core/src/database.ts:37](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L37)
 
 ## Methods
 
@@ -101,7 +101,7 @@ A Promise that resolves when initialization is complete.
 
 #### Defined in
 
-[packages/core/src/database.ts:58](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L58)
+[packages/core/src/database.ts:59](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L59)
 
 ***
 
@@ -123,7 +123,7 @@ A Promise that resolves when closing is complete.
 
 #### Defined in
 
-[packages/core/src/database.ts:64](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L64)
+[packages/core/src/database.ts:65](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L65)
 
 ***
 
@@ -151,7 +151,7 @@ A Promise that resolves to the Account object or null if not found.
 
 #### Defined in
 
-[packages/core/src/database.ts:71](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L71)
+[packages/core/src/database.ts:72](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L72)
 
 ***
 
@@ -179,7 +179,7 @@ A Promise that resolves when the account creation is complete.
 
 #### Defined in
 
-[packages/core/src/database.ts:78](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L78)
+[packages/core/src/database.ts:79](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L79)
 
 ***
 
@@ -217,7 +217,7 @@ A Promise that resolves to an array of Memory objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:85](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L85)
+[packages/core/src/database.ts:86](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L86)
 
 ***
 
@@ -235,6 +235,8 @@ A Promise that resolves to an array of Memory objects.
 
 • **params.tableName**: `string`
 
+• **params.limit?**: `number`
+
 #### Returns
 
 `Promise`\<[`Memory`](../interfaces/Memory.md)[]\>
@@ -245,7 +247,7 @@ A Promise that resolves to an array of Memory objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:93](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L93)
+[packages/core/src/database.ts:94](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L94)
 
 ***
 
@@ -267,7 +269,39 @@ A Promise that resolves to an array of Memory objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:99](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L99)
+[packages/core/src/database.ts:101](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L101)
+
+***
+
+### getMemoriesByIds()
+
+> `abstract` **getMemoriesByIds**(`memoryIds`, `tableName`?): `Promise`\<[`Memory`](../interfaces/Memory.md)[]\>
+
+Retrieves multiple memories by their IDs
+
+#### Parameters
+
+• **memoryIds**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`[]
+
+Array of UUIDs of the memories to retrieve
+
+• **tableName?**: `string`
+
+Optional table name to filter memories by type
+
+#### Returns
+
+`Promise`\<[`Memory`](../interfaces/Memory.md)[]\>
+
+Promise resolving to array of Memory objects
+
+#### Implementation of
+
+[`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md).[`getMemoriesByIds`](../interfaces/IDatabaseAdapter.md#getMemoriesByIds)
+
+#### Defined in
+
+[packages/core/src/database.ts:109](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L109)
 
 ***
 
@@ -307,7 +341,7 @@ A Promise that resolves to an array of objects containing embeddings and levensh
 
 #### Defined in
 
-[packages/core/src/database.ts:106](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L106)
+[packages/core/src/database.ts:119](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L119)
 
 ***
 
@@ -343,7 +377,7 @@ A Promise that resolves when the log entry has been saved.
 
 #### Defined in
 
-[packages/core/src/database.ts:132](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L132)
+[packages/core/src/database.ts:145](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L145)
 
 ***
 
@@ -373,7 +407,7 @@ A Promise that resolves to an array of Actor objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:144](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L144)
+[packages/core/src/database.ts:157](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L157)
 
 ***
 
@@ -415,7 +449,7 @@ A Promise that resolves to an array of Memory objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:151](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L151)
+[packages/core/src/database.ts:164](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L164)
 
 ***
 
@@ -447,7 +481,7 @@ A Promise that resolves when the goal status has been updated.
 
 #### Defined in
 
-[packages/core/src/database.ts:166](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L166)
+[packages/core/src/database.ts:179](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L179)
 
 ***
 
@@ -491,7 +525,7 @@ A Promise that resolves to an array of Memory objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:177](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L177)
+[packages/core/src/database.ts:190](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L190)
 
 ***
 
@@ -527,7 +561,7 @@ A Promise that resolves when the memory has been created.
 
 #### Defined in
 
-[packages/core/src/database.ts:196](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L196)
+[packages/core/src/database.ts:209](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L209)
 
 ***
 
@@ -559,7 +593,7 @@ A Promise that resolves when the memory has been removed.
 
 #### Defined in
 
-[packages/core/src/database.ts:208](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L208)
+[packages/core/src/database.ts:221](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L221)
 
 ***
 
@@ -591,7 +625,7 @@ A Promise that resolves when all memories have been removed.
 
 #### Defined in
 
-[packages/core/src/database.ts:216](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L216)
+[packages/core/src/database.ts:229](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L229)
 
 ***
 
@@ -627,7 +661,7 @@ A Promise that resolves to the number of memories.
 
 #### Defined in
 
-[packages/core/src/database.ts:225](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L225)
+[packages/core/src/database.ts:238](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L238)
 
 ***
 
@@ -665,7 +699,7 @@ A Promise that resolves to an array of Goal objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:236](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L236)
+[packages/core/src/database.ts:249](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L249)
 
 ***
 
@@ -693,7 +727,7 @@ A Promise that resolves when the goal has been updated.
 
 #### Defined in
 
-[packages/core/src/database.ts:249](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L249)
+[packages/core/src/database.ts:262](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L262)
 
 ***
 
@@ -721,7 +755,7 @@ A Promise that resolves when the goal has been created.
 
 #### Defined in
 
-[packages/core/src/database.ts:256](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L256)
+[packages/core/src/database.ts:269](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L269)
 
 ***
 
@@ -749,7 +783,7 @@ A Promise that resolves when the goal has been removed.
 
 #### Defined in
 
-[packages/core/src/database.ts:263](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L263)
+[packages/core/src/database.ts:276](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L276)
 
 ***
 
@@ -777,7 +811,7 @@ A Promise that resolves when all goals have been removed.
 
 #### Defined in
 
-[packages/core/src/database.ts:270](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L270)
+[packages/core/src/database.ts:283](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L283)
 
 ***
 
@@ -805,7 +839,7 @@ A Promise that resolves to the room ID or null if not found.
 
 #### Defined in
 
-[packages/core/src/database.ts:277](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L277)
+[packages/core/src/database.ts:290](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L290)
 
 ***
 
@@ -833,7 +867,7 @@ A Promise that resolves to the UUID of the created room.
 
 #### Defined in
 
-[packages/core/src/database.ts:284](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L284)
+[packages/core/src/database.ts:297](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L297)
 
 ***
 
@@ -861,7 +895,7 @@ A Promise that resolves when the room has been removed.
 
 #### Defined in
 
-[packages/core/src/database.ts:291](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L291)
+[packages/core/src/database.ts:304](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L304)
 
 ***
 
@@ -889,7 +923,7 @@ A Promise that resolves to an array of room IDs.
 
 #### Defined in
 
-[packages/core/src/database.ts:298](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L298)
+[packages/core/src/database.ts:311](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L311)
 
 ***
 
@@ -917,7 +951,7 @@ A Promise that resolves to an array of room IDs.
 
 #### Defined in
 
-[packages/core/src/database.ts:305](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L305)
+[packages/core/src/database.ts:318](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L318)
 
 ***
 
@@ -949,7 +983,7 @@ A Promise that resolves to a boolean indicating success or failure.
 
 #### Defined in
 
-[packages/core/src/database.ts:313](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L313)
+[packages/core/src/database.ts:326](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L326)
 
 ***
 
@@ -981,7 +1015,7 @@ A Promise that resolves to a boolean indicating success or failure.
 
 #### Defined in
 
-[packages/core/src/database.ts:321](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L321)
+[packages/core/src/database.ts:334](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L334)
 
 ***
 
@@ -1011,7 +1045,7 @@ A Promise that resolves to an array of Participant objects.
 
 ##### Defined in
 
-[packages/core/src/database.ts:328](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L328)
+[packages/core/src/database.ts:341](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L341)
 
 #### getParticipantsForAccount(userId)
 
@@ -1037,7 +1071,7 @@ A Promise that resolves to an array of Participant objects.
 
 ##### Defined in
 
-[packages/core/src/database.ts:335](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L335)
+[packages/core/src/database.ts:348](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L348)
 
 ***
 
@@ -1065,7 +1099,7 @@ A Promise that resolves to an array of UUIDs representing the participants.
 
 #### Defined in
 
-[packages/core/src/database.ts:342](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L342)
+[packages/core/src/database.ts:355](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L355)
 
 ***
 
@@ -1089,7 +1123,7 @@ A Promise that resolves to an array of UUIDs representing the participants.
 
 #### Defined in
 
-[packages/core/src/database.ts:344](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L344)
+[packages/core/src/database.ts:357](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L357)
 
 ***
 
@@ -1115,7 +1149,7 @@ A Promise that resolves to an array of UUIDs representing the participants.
 
 #### Defined in
 
-[packages/core/src/database.ts:348](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L348)
+[packages/core/src/database.ts:361](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L361)
 
 ***
 
@@ -1147,7 +1181,7 @@ A Promise that resolves to a boolean indicating success or failure of the creati
 
 #### Defined in
 
-[packages/core/src/database.ts:359](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L359)
+[packages/core/src/database.ts:372](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L372)
 
 ***
 
@@ -1179,7 +1213,7 @@ A Promise that resolves to the Relationship object or null if not found.
 
 #### Defined in
 
-[packages/core/src/database.ts:369](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L369)
+[packages/core/src/database.ts:382](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L382)
 
 ***
 
@@ -1209,7 +1243,163 @@ A Promise that resolves to an array of Relationship objects.
 
 #### Defined in
 
-[packages/core/src/database.ts:379](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L379)
+[packages/core/src/database.ts:392](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L392)
+
+***
+
+### getKnowledge()
+
+> `abstract` **getKnowledge**(`params`): `Promise`\<[`RAGKnowledgeItem`](../interfaces/RAGKnowledgeItem.md)[]\>
+
+Retrieves knowledge items based on specified parameters.
+
+#### Parameters
+
+• **params**
+
+Object containing search parameters
+
+• **params.id?**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`
+
+• **params.agentId**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`
+
+• **params.limit?**: `number`
+
+• **params.query?**: `string`
+
+• **params.conversationContext?**: `string`
+
+#### Returns
+
+`Promise`\<[`RAGKnowledgeItem`](../interfaces/RAGKnowledgeItem.md)[]\>
+
+Promise resolving to array of knowledge items
+
+#### Implementation of
+
+[`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md).[`getKnowledge`](../interfaces/IDatabaseAdapter.md#getKnowledge)
+
+#### Defined in
+
+[packages/core/src/database.ts:401](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L401)
+
+***
+
+### searchKnowledge()
+
+> `abstract` **searchKnowledge**(`params`): `Promise`\<[`RAGKnowledgeItem`](../interfaces/RAGKnowledgeItem.md)[]\>
+
+#### Parameters
+
+• **params**
+
+• **params.agentId**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`
+
+• **params.embedding**: `Float32Array`
+
+• **params.match\_threshold**: `number`
+
+• **params.match\_count**: `number`
+
+• **params.searchText?**: `string`
+
+#### Returns
+
+`Promise`\<[`RAGKnowledgeItem`](../interfaces/RAGKnowledgeItem.md)[]\>
+
+#### Implementation of
+
+[`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md).[`searchKnowledge`](../interfaces/IDatabaseAdapter.md#searchKnowledge)
+
+#### Defined in
+
+[packages/core/src/database.ts:409](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L409)
+
+***
+
+### createKnowledge()
+
+> `abstract` **createKnowledge**(`knowledge`): `Promise`\<`void`\>
+
+Creates a new knowledge item in the database.
+
+#### Parameters
+
+• **knowledge**: [`RAGKnowledgeItem`](../interfaces/RAGKnowledgeItem.md)
+
+The knowledge item to create
+
+#### Returns
+
+`Promise`\<`void`\>
+
+Promise resolving when creation is complete
+
+#### Implementation of
+
+[`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md).[`createKnowledge`](../interfaces/IDatabaseAdapter.md#createKnowledge)
+
+#### Defined in
+
+[packages/core/src/database.ts:422](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L422)
+
+***
+
+### removeKnowledge()
+
+> `abstract` **removeKnowledge**(`id`): `Promise`\<`void`\>
+
+Removes a knowledge item and its associated chunks from the database.
+
+#### Parameters
+
+• **id**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`
+
+The ID of the knowledge item to remove
+
+#### Returns
+
+`Promise`\<`void`\>
+
+Promise resolving when removal is complete
+
+#### Implementation of
+
+[`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md).[`removeKnowledge`](../interfaces/IDatabaseAdapter.md#removeKnowledge)
+
+#### Defined in
+
+[packages/core/src/database.ts:429](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L429)
+
+***
+
+### clearKnowledge()
+
+> `abstract` **clearKnowledge**(`agentId`, `shared`?): `Promise`\<`void`\>
+
+Removes an agents full knowledge database and its associated chunks from the database.
+
+#### Parameters
+
+• **agentId**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`
+
+The Agent ID of the knowledge items to remove
+
+• **shared?**: `boolean`
+
+#### Returns
+
+`Promise`\<`void`\>
+
+Promise resolving when removal is complete
+
+#### Implementation of
+
+[`IDatabaseAdapter`](../interfaces/IDatabaseAdapter.md).[`clearKnowledge`](../interfaces/IDatabaseAdapter.md#clearKnowledge)
+
+#### Defined in
+
+[packages/core/src/database.ts:436](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L436)
 
 ***
 
@@ -1245,4 +1435,4 @@ Will throw an error if the circuit breaker is open or if the operation fails
 
 #### Defined in
 
-[packages/core/src/database.ts:391](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L391)
+[packages/core/src/database.ts:446](https://github.com/elizaOS/eliza/blob/main/packages/core/src/database.ts#L446)

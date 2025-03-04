@@ -1,8 +1,8 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / composeContext
+[@elizaos/core v0.25.8](../index.md) / composeContext
 
 # Function: composeContext()
 
-> **composeContext**(`params`): `any`
+> **composeContext**(`params`): `string`
 
 Composes a context string by replacing placeholders in a template with corresponding values from the state.
 
@@ -22,9 +22,9 @@ The parameters for composing the context.
 
 The state object containing values to replace the placeholders in the template.
 
-• **params.template**: `string`
+• **params.template**: [`TemplateType`](../type-aliases/TemplateType.md)
 
-The template string containing placeholders to be replaced with state values.
+The template string or function containing placeholders to be replaced with state values.
 
 • **params.templatingEngine?**: `"handlebars"`
 
@@ -32,7 +32,7 @@ The templating engine to use for compiling and evaluating the template (optional
 
 ## Returns
 
-`any`
+`string`
 
 The composed context string with placeholders replaced by corresponding state values.
 
@@ -46,8 +46,15 @@ const template = "Hello, {{userName}}! You are {{userAge}} years old";
 // Composing the context with simple string replacement will result in:
 // "Hello, Alice! You are 30 years old."
 const contextSimple = composeContext({ state, template });
+
+// Using composeContext with a template function for dynamic template
+const template = ({ state }) => {
+const tone = Math.random() > 0.5 ? "kind" : "rude";
+  return `Hello, {{userName}}! You are {{userAge}} years old. Be ${tone}`;
+};
+const contextSimple = composeContext({ state, template });
 ```
 
 ## Defined in
 
-[packages/core/src/context.ts:29](https://github.com/elizaOS/eliza/blob/main/packages/core/src/context.ts#L29)
+[packages/core/src/context.ts:37](https://github.com/elizaOS/eliza/blob/main/packages/core/src/context.ts#L37)

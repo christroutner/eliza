@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / Action
+[@elizaos/core v0.25.8](../index.md) / Action
 
 # Interface: Action
 
@@ -14,7 +14,7 @@ Similar action descriptions
 
 #### Defined in
 
-[packages/core/src/types.ts:404](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L404)
+[packages/core/src/types.ts:444](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L444)
 
 ***
 
@@ -26,7 +26,7 @@ Detailed description
 
 #### Defined in
 
-[packages/core/src/types.ts:407](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L407)
+[packages/core/src/types.ts:447](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L447)
 
 ***
 
@@ -38,7 +38,7 @@ Example usages
 
 #### Defined in
 
-[packages/core/src/types.ts:410](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L410)
+[packages/core/src/types.ts:450](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L450)
 
 ***
 
@@ -50,7 +50,7 @@ Handler function
 
 #### Defined in
 
-[packages/core/src/types.ts:413](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L413)
+[packages/core/src/types.ts:453](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L453)
 
 ***
 
@@ -62,7 +62,7 @@ Action name
 
 #### Defined in
 
-[packages/core/src/types.ts:416](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L416)
+[packages/core/src/types.ts:456](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L456)
 
 ***
 
@@ -74,4 +74,16 @@ Validation function
 
 #### Defined in
 
-[packages/core/src/types.ts:419](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L419)
+[packages/core/src/types.ts:459](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L459)
+
+***
+
+### suppressInitialMessage?
+
+> `optional` **suppressInitialMessage**: `boolean`
+
+Whether to suppress the initial message when this action is used
+
+#### Defined in
+
+[packages/core/src/types.ts:462](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L462)

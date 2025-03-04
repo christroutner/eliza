@@ -11,7 +11,7 @@ elizaLogger.info("Loading embedding settings:", {
 });
 
 // Add this logging block
-elizaLogger.info("Loading character settings:", {
+elizaLogger.debug("Loading character settings:", {
     CHARACTER_PATH: process.env.CHARACTER_PATH,
     ARGV: process.argv,
     CHARACTER_ARG: process.argv.find((arg) => arg.startsWith("--character=")),
@@ -93,7 +93,7 @@ export function loadEnvConfig(): Settings {
     const result = config(envPath ? { path: envPath } : {});
 
     if (!result.error) {
-        console.log(`Loaded .env file from: ${envPath}`);
+        elizaLogger.log(`Loaded .env file from: ${envPath}`);
     }
 
     // Parse namespaced settings
@@ -156,10 +156,10 @@ function parseNamespacedSettings(env: Settings): NamespacedSettings {
     for (const [key, value] of Object.entries(env)) {
         if (!value) continue;
 
-        const [namespace, ...rest] = key.split('.');
+        const [namespace, ...rest] = key.split(".");
         if (!namespace || rest.length === 0) continue;
 
-        const settingKey = rest.join('.');
+        const settingKey = rest.join(".");
         namespaced[namespace] = namespaced[namespace] || {};
         namespaced[namespace][settingKey] = value;
     }

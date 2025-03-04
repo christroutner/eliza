@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / MemoryManager
+[@elizaos/core v0.25.8](../index.md) / MemoryManager
 
 # Class: MemoryManager
 
@@ -262,6 +262,8 @@ A Promise that resolves when the operation completes.
 
 • **params.roomIds**: \`$\{string\}-$\{string\}-$\{string\}-$\{string\}-$\{string\}\`[]
 
+• **params.limit?**: `number`
+
 #### Returns
 
 `Promise`\<[`Memory`](../interfaces/Memory.md)[]\>
@@ -294,7 +296,7 @@ A Promise that resolves when the operation completes.
 
 #### Defined in
 
-[packages/core/src/memory.ts:200](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L200)
+[packages/core/src/memory.ts:201](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L201)
 
 ***
 
@@ -322,7 +324,7 @@ A Promise that resolves when the operation completes.
 
 #### Defined in
 
-[packages/core/src/memory.ts:211](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L211)
+[packages/core/src/memory.ts:212](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L212)
 
 ***
 
@@ -350,7 +352,7 @@ A Promise that resolves when the operation completes.
 
 #### Defined in
 
-[packages/core/src/memory.ts:223](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L223)
+[packages/core/src/memory.ts:224](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L224)
 
 ***
 
@@ -382,4 +384,4 @@ A Promise resolving to the count of memories.
 
 #### Defined in
 
-[packages/core/src/memory.ts:236](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L236)
+[packages/core/src/memory.ts:237](https://github.com/elizaOS/eliza/blob/main/packages/core/src/memory.ts#L237)

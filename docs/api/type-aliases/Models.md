@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / Models
+[@elizaos/core v0.25.8](../index.md) / Models
 
 # Type Alias: Models
 
@@ -40,9 +40,17 @@ Model configurations by provider
 
 > **llama\_local**: [`Model`](Model.md)
 
+### lmstudio
+
+> **lmstudio**: [`Model`](Model.md)
+
 ### google
 
 > **google**: [`Model`](Model.md)
+
+### mistral
+
+> **mistral**: [`Model`](Model.md)
 
 ### claude\_vertex
 
@@ -96,6 +104,14 @@ Model configurations by provider
 
 > **venice**: [`Model`](Model.md)
 
+### nvidia
+
+> **nvidia**: [`Model`](Model.md)
+
+### nineteen\_ai
+
+> **nineteen\_ai**: [`Model`](Model.md)
+
 ### akash\_chat\_api
 
 > **akash\_chat\_api**: [`Model`](Model.md)
@@ -104,6 +120,30 @@ Model configurations by provider
 
 > **livepeer**: [`Model`](Model.md)
 
+### deepseek
+
+> **deepseek**: [`Model`](Model.md)
+
+### infera
+
+> **infera**: [`Model`](Model.md)
+
+### bedrock
+
+> **bedrock**: [`Model`](Model.md)
+
+### atoma
+
+> **atoma**: [`Model`](Model.md)
+
+### secret\_ai
+
+> **secret\_ai**: [`Model`](Model.md)
+
+### nearai
+
+> **nearai**: [`Model`](Model.md)
+
 ## Defined in
 
-[packages/core/src/types.ts:188](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L188)
+[packages/core/src/types.ts:203](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L203)

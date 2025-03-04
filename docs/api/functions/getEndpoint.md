@@ -1,8 +1,8 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / getEndpoint
+[@elizaos/core v0.25.8](../index.md) / getEndpoint
 
 # Function: getEndpoint()
 
-> **getEndpoint**(`provider`): `string`
+> **getEndpoint**(`provider`): `any`
 
 ## Parameters
 
@@ -10,8 +10,8 @@
 
 ## Returns
 
-`string`
+`any`
 
 ## Defined in
 
-[packages/core/src/models.ts:495](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts#L495)
+[packages/core/src/models.ts:1249](https://github.com/elizaOS/eliza/blob/main/packages/core/src/models.ts#L1249)

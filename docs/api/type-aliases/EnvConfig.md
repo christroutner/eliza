@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / EnvConfig
+[@elizaos/core v0.25.8](../index.md) / EnvConfig
 
 # Type Alias: EnvConfig
 
@@ -8,4 +8,4 @@ Type inference
 
 ## Defined in
 
-[packages/core/src/environment.ts:23](https://github.com/elizaOS/eliza/blob/main/packages/core/src/environment.ts#L23)
+[packages/core/src/environment.ts:24](https://github.com/elizaOS/eliza/blob/main/packages/core/src/environment.ts#L24)

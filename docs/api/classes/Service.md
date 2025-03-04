@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / Service
+[@elizaos/core v0.25.8](../index.md) / Service
 
 # Class: `abstract` Service
 
@@ -12,6 +12,8 @@
 - [`ISpeechService`](../interfaces/ISpeechService.md)
 - [`IPdfService`](../interfaces/IPdfService.md)
 - [`IAwsS3Service`](../interfaces/IAwsS3Service.md)
+- [`IIrysService`](../interfaces/IIrysService.md)
+- [`ITeeLogService`](../interfaces/ITeeLogService.md)
 - [`ISlackService`](../interfaces/ISlackService.md)
 
 ## Constructors
@@ -38,7 +40,7 @@
 
 #### Defined in
 
-[packages/core/src/types.ts:1025](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1025)
+[packages/core/src/types.ts:1268](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1268)
 
 ***
 
@@ -54,7 +56,7 @@
 
 #### Defined in
 
-[packages/core/src/types.ts:1036](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1036)
+[packages/core/src/types.ts:1279](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1279)
 
 ## Methods
 
@@ -72,7 +74,7 @@
 
 #### Defined in
 
-[packages/core/src/types.ts:1029](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1029)
+[packages/core/src/types.ts:1272](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1272)
 
 ***
 
@@ -92,4 +94,4 @@ Add abstract initialize method that must be implemented by derived classes
 
 #### Defined in
 
-[packages/core/src/types.ts:1041](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1041)
+[packages/core/src/types.ts:1284](https://github.com/elizaOS/eliza/blob/main/packages/core/src/types.ts#L1284)

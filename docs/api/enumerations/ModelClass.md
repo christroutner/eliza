@@ -1,4 +1,4 @@
-[@elizaos/core v0.1.7-alpha.1](../index.md) / ModelClass
+[@elizaos/core v0.25.8](../index.md) / ModelClass
 
 # Enumeration: ModelClass
 
