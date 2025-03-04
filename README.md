@@ -1,3 +1,9 @@
+# Trout's Fork
+
+The `main` branch is unmodified. My customizaitons are in the branch `ct-unstable-v0.1.5-eliza2`
+
+---
+
 # Eliza 🤖
 
 <div align="center">
