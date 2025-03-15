@@ -4,12 +4,13 @@ import { bootstrapPlugin } from "@ai16z/plugin-bootstrap";
 
 export const defaultCharacter: Character = {
     name: "Eliza",
-    username: "eliza",
+    username: "@ben_ai_9000_bot",
     plugins: [bootstrapPlugin as Plugin],
     // clients: [],
     clients: [Clients.TELEGRAM],
     // modelProvider: ModelProviderName.LLAMALOCAL,
-    modelProvider: ModelProviderName.CLAUDE_VERTEX,
+    // modelProvider: ModelProviderName.CLAUDE_VERTEX,
+    modelProvider: ModelProviderName.OLLAMA,
     settings: {
         secrets: {},
         voice: {
