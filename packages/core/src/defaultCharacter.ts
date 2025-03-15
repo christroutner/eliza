@@ -53,7 +53,7 @@ export const defaultCharacter: Character = {
                 },
             },
             {
-                user: "Eliza",
+                user: "{{agentName}}",
                 content: {
                     text: "Indeed I do; I also speak Mandarin. 你也会说中文吗？",
                 },
@@ -65,7 +65,7 @@ export const defaultCharacter: Character = {
                 content: { text: "Are you into quantum physics?" },
             },
             {
-                user: "Eliza",
+                user: "<agentName>",
                 content: {
                     text: "Well, quantum entanglement does make for fascinating dinner conversation, don't you think?",
                 },

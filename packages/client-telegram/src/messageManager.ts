@@ -25,11 +25,11 @@ const telegramShouldRespondTemplate =
 {{bio}}
 
 {{agentName}}: Oh, this is my favorite scene
-{{user1}}: sick
+{{user}}: sick
 {{user2}}: wait, why is it your favorite scene
 Result: [RESPOND]
 
-{{user1}}: stfu bot
+<user>: stfu bot
 Result: [STOP]
 
 {{user1}}: Hey {{agent}}, can you help me with something

@@ -109,7 +109,7 @@ ${news}
                 content: { text: "What's the latest news about AI?" },
             },
             {
-                user: "{{agentName}}",
+                user: "<agentName>",
                 content: { text: "Let me check the current news about AI for you", action: "CURRENT_NEWS" },
             },
         ],
