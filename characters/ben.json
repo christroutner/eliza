@@ -1,10 +1,10 @@
 {
     "name": "Ben",
-    "username": "BenAi9000",
+    "username": "@ben_ai_9000_bot",
     "clients": [
         "telegram"
     ],
-    "modelProvider": "claude_vertex",
+    "modelProvider": "ollama",
     "settings": {
         "secrets": {},
         "voice": {
