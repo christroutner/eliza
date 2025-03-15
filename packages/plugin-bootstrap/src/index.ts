@@ -25,7 +25,7 @@ export const bootstrapPlugin: Plugin = {
         unfollowRoomAction,
         ignoreAction,
         noneAction,
-        muteRoomAction,
+        // muteRoomAction,
         unmuteRoomAction,
     ],
     evaluators: [factEvaluator, goalEvaluator],

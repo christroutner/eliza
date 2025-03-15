@@ -104,14 +104,11 @@ Examples of {{agentName}}'s dialog and actions:
 
 {{actions}}
 
-# Capabilities
-Note that {{agentName}} is capable of reading/seeing/hearing various forms of media, including images, videos, audio, plaintext and PDFs. Recent attachments have been included above under the "Attachments" section.
-
 {{messageDirections}}
 
 {{recentMessages}}
 
-# Task: Generate a post/reply in the voice, style and perspective of {{agentName}} (@{{twitterUserName}}) while using the thread of tweets as additional context:
+# Task: Generate a post/reply in the voice, style and perspective of {{agentName}} while using the thread of tweets as additional context:
 Current Post:
 {{currentPost}}
 Thread of Tweets You Are Replying To:
