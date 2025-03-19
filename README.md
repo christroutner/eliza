@@ -1,6 +1,10 @@
 # Trout's Fork
 
-The `main` branch is unmodified. My customizaitons are in the branch `ct-unstable-v0.1.5-eliza2`
+This is a fork of the Eliza repository. This fork is used to create Ben, an AI tech support chat bot that focuses on JavaScript, Bitcoin Cash, and the [Cash Stack](https://cashstack.info).
+
+The `main` branch is unmodified. My customizaitons are in these branches: 
+- `ben-v1.0.0-beta.2` - Ben, using a customized version of Eliza v1.0.0
+- `ct-unstable-v0.1.5-eliza2` - An earlier version of Eliza
 
 ---
 
