@@ -1146,6 +1146,8 @@ export const localAIPlugin: Plugin = {
           temperature: params.temperature,
         });
 
+        console.log(`\nprompt: \n${params.prompt}`);
+
         // Enhance the prompt to request JSON output
         let jsonPrompt = params.prompt;
         if (!jsonPrompt.includes('```json') && !jsonPrompt.includes('respond with valid JSON')) {

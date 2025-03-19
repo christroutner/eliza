@@ -342,6 +342,8 @@ export class OllamaManager {
         hasThinkTag: responseText.includes('<think>'),
       });
 
+      console.log(`\nOllama response: \n${responseText}\n`);
+
       // Clean think tags if present
       if (responseText.includes('<think>')) {
         logger.info('Cleaning think tags from response');
