@@ -1287,6 +1287,8 @@ export const localAIPlugin: Plugin = {
           });
         }
 
+        console.log('ping01');
+
         // Extract and parse JSON from the text response
         try {
           // Function to extract JSON content from text

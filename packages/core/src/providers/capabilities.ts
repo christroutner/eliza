@@ -48,7 +48,7 @@ export const capabilitiesProvider: Provider = {
         data: {
           capabilities,
         },
-        text: `# ${runtime.character.name}'s Capabilities\n\n${formattedCapabilities}`,
+        text: `\n# Capabilities for ${runtime.character.name}\n\n${formattedCapabilities}`,
       };
     } catch (error) {
       logger.error('Error in capabilities provider:', error);
