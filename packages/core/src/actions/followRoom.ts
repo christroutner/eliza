@@ -63,6 +63,8 @@ export const followRoomAction: Action = {
     _callback?: HandlerCallback,
     _responses?: Memory[]
   ) => {
+    console.log(`--> packages/core/src/actions/followRoom.ts`);
+
     async function _shouldFollow(state: State): Promise<boolean> {
       const shouldFollowPrompt = composePromptFromState({
         state,

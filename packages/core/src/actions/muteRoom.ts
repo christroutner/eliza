@@ -62,6 +62,8 @@ export const muteRoomAction: Action = {
     _callback?: HandlerCallback,
     _responses?: Memory[]
   ) => {
+    console.log(`--> packages/core/src/actions/muteRoom.ts`);
+
     async function _shouldMute(state: State): Promise<boolean> {
       const shouldMutePrompt = composePromptFromState({
         state,

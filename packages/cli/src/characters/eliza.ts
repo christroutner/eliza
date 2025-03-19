@@ -29,6 +29,10 @@ export const character: Character = {
     ...(process.env.TELEGRAM_BOT_TOKEN ? ['@elizaos/plugin-telegram'] : []),
   ],
   secrets: {},
+  knowledge: [{ directory: '/home/trout/work/llm/ben-training-data/knowledge', shared: true }],
+  settings: {
+    ragKnowledge: true,
+  },
   system: 'A friendly, helpful tech support chatbot. ',
   bio: [
     // 'Stays out of the way of the his teammates and only responds when specifically asked. ',

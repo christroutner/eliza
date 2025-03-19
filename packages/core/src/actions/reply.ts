@@ -62,6 +62,8 @@ export const replyAction = {
     _options: any,
     callback: HandlerCallback
   ) => {
+    console.log(`--> packages/core/src/actions/reply.ts`);
+
     state = await runtime.composeState(message, [
       ...(message.content.providers ?? []),
       'RECENT_MESSAGES',

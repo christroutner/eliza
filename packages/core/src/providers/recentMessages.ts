@@ -53,6 +53,8 @@ export const recentMessagesProvider: Provider = {
   description: 'Recent messages, interactions and other memories',
   position: 100,
   get: async (runtime: IAgentRuntime, message: Memory) => {
+    console.log(`--> packages/core/src/providers/recentMessages.ts`);
+
     const { roomId } = message;
     const conversationLength = runtime.getConversationLength();
 

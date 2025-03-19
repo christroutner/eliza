@@ -14,6 +14,8 @@ import type { IAgentRuntime, Memory, Provider, ProviderResult, State } from '../
 export const capabilitiesProvider: Provider = {
   name: 'CAPABILITIES',
   get: async (runtime: IAgentRuntime, _message: Memory): Promise<ProviderResult> => {
+    console.log(`--> packages/core/src/providers/capabilities.ts`);
+
     try {
       // Get all registered services
       const services = runtime.getAllServices();

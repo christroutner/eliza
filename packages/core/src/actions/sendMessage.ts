@@ -145,6 +145,8 @@ export const sendMessageAction: Action = {
     callback: HandlerCallback,
     responses: Memory[]
   ): Promise<void> => {
+    console.log(`--> packages/core/src/actions/sendMessage.ts`);
+
     try {
       // Handle initial responses
       for (const response of responses) {

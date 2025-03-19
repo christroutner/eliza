@@ -80,6 +80,8 @@ const relationshipsProvider: Provider = {
     'Relationships between {{agentName}} and other people, or between other people that {{agentName}} has observed interacting with',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory) => {
+    console.log(`--> packages/core/src/providers/relationships.ts`);
+
     // Get all relationships for the current user
     const relationships = await runtime.getRelationships({
       entityId: message.entityId,

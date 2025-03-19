@@ -25,6 +25,8 @@ export const roleProvider: Provider = {
   name: 'ROLES',
   description: 'Roles in the server, default are OWNER, ADMIN and MEMBER (as well as NONE)',
   get: async (runtime: IAgentRuntime, message: Memory, state: State): Promise<ProviderResult> => {
+    console.log(`--> packages/core/src/providers/roles.ts`);
+
     const room = state.data.room ?? (await runtime.getRoom(message.roomId));
     if (!room) {
       throw new Error('No room found');

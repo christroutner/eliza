@@ -12,6 +12,8 @@ export const characterProvider: Provider = {
   name: 'CHARACTER',
   description: 'Character information',
   get: async (runtime: IAgentRuntime, message: Memory, state: State) => {
+    console.log(`--> packages/core/src/providers/character.ts`);
+
     const character = runtime.character;
 
     // Character name

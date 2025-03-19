@@ -709,6 +709,8 @@ const updateSettingsAction: Action = {
     _options: any,
     callback: HandlerCallback
   ): Promise<void> => {
+    console.log(`--> packages/core/src/actions/settings.ts`);
+
     try {
       // Find the server where this user is the owner
       logger.info(`Handler looking for server for user ${message.entityId}`);

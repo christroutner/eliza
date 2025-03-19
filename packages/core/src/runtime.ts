@@ -609,6 +609,8 @@ export class AgentRuntime implements IAgentRuntime {
       modelContextSize: 4096,
     }
   ) {
+    console.log(`--> packages/core/src/runtime.ts addKnowledge()`);
+
     // First store the document
     const documentMemory: Memory = {
       id: item.id,

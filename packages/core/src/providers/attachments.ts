@@ -14,6 +14,8 @@ export const attachmentsProvider: Provider = {
     'List of attachments sent during the current conversation, including names, descriptions, and summaries',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory) => {
+    console.log(`--> packages/core/src/providers/attachments.ts`);
+
     // Start with any attachments in the current message
     let allAttachments = message.content.attachments || [];
 
