@@ -518,17 +518,17 @@ export class AgentRuntime implements IAgentRuntime {
     }
 
     // Check if TEXT_EMBEDDING model is registered
-    const embeddingModel = null;
-    // const embeddingModel = this.getModel(ModelType.TEXT_EMBEDDING);
-    // console.log('core/runtime.ts initialize() embeddingModel', embeddingModel);
-    // if (!embeddingModel) {
-    this.runtimeLogger.warn(
-      `[AgentRuntime][${this.character.name}] No TEXT_EMBEDDING model registered. Skipping embedding dimension setup.`
-    );
-    // } else {
-    //   // Only run ensureEmbeddingDimension if we have an embedding model
-    //   await this.ensureEmbeddingDimension();
-    // }
+    // const embeddingModel = null;
+    const embeddingModel = this.getModel(ModelType.TEXT_EMBEDDING);
+    console.log('core/runtime.ts initialize() embeddingModel', embeddingModel);
+    if (!embeddingModel) {
+      this.runtimeLogger.warn(
+        `[AgentRuntime][${this.character.name}] No TEXT_EMBEDDING model registered. Skipping embedding dimension setup.`
+      );
+    } else {
+      // Only run ensureEmbeddingDimension if we have an embedding model
+      await this.ensureEmbeddingDimension();
+    }
 
     // Process character knowledge
     if (this.character?.knowledge && this.character.knowledge.length > 0) {
