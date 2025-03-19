@@ -625,7 +625,7 @@ class LocalAIManager {
       });
 
       // Log raw response for debugging
-      logger.info('Raw response structure:', {
+      logger.info('generateText()-root Raw response structure:', {
         responseLength: response.length,
         hasAction: response.includes('action'),
         hasThinkTag: response.includes('<think>'),
@@ -651,6 +651,8 @@ class LocalAIManager {
    */
   async generateEmbedding(text: string): Promise<number[]> {
     try {
+      console.log('generateEmbedding() text', text);
+
       // Lazy initialize embedding model
       await this.lazyInitEmbedding();
 

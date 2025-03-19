@@ -312,6 +312,8 @@ export class OllamaManager {
           presence_penalty: 0.7,
         },
       };
+      // console.log('ollamaManager.ts generateText() request', request);
+      console.log('ollamaManager.ts generateText() prompt:\n', request.prompt);
 
       const response = await fetch(`${this.serverUrl}/api/generate`, {
         method: 'POST',
@@ -334,7 +336,7 @@ export class OllamaManager {
       let responseText = result.response;
 
       // Log raw response for debugging
-      logger.info('Raw response structure:', {
+      logger.info('ollamaManager.ts generateText() Raw response structure:', {
         responseLength: responseText.length,
         hasAction: responseText.includes('action'),
         hasThinkTag: responseText.includes('<think>'),

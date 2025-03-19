@@ -434,7 +434,7 @@ export function parseJsonArrayFromText(text: string) {
         const normalizedJson = arrayMatch[0].replace(/(?<!\\)'([^']*)'(?=\s*[,}\]])/g, '"$1"');
         jsonData = JSON.parse(normalizeJsonString(normalizedJson));
       } catch (_e) {
-        logger.warn('Could not parse text as JSON, returning null');
+        logger.warn('Could not parse text as JSON, returning null (1)');
       }
     }
   }
@@ -461,6 +461,9 @@ export function parseJSONObjectFromText(text: string): Record<string, any> | nul
   const jsonBlockMatch = text.match(jsonBlockPattern);
 
   try {
+    console.log('parseJSONObjectFromText() text', text);
+    console.log('parseJSONObjectFromText() jsonBlockMatch', jsonBlockMatch);
+
     if (jsonBlockMatch) {
       // Parse the JSON from inside the code block
       jsonData = JSON.parse(normalizeJsonString(jsonBlockMatch[1].trim()));
@@ -469,7 +472,7 @@ export function parseJSONObjectFromText(text: string): Record<string, any> | nul
       jsonData = JSON.parse(normalizeJsonString(text.trim()));
     }
   } catch (_e) {
-    logger.warn('Could not parse text as JSON, returning null');
+    logger.warn('Could not parse text as JSON, returning null (3)');
     return null;
   }
 
@@ -478,7 +481,7 @@ export function parseJSONObjectFromText(text: string): Record<string, any> | nul
     return jsonData;
   }
 
-  logger.warn('Could not parse text as JSON, returning null');
+  logger.warn('Could not parse text as JSON, returning null (2)');
 
   return null;
 }
