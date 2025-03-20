@@ -1126,7 +1126,10 @@ export const localAIPlugin: Plugin = {
         }
 
         // Pass the raw text directly to the framework without any manipulation
-        return await localAIManager.generateEmbedding(text);
+        const embedding = await localAIManager.generateEmbedding(text);
+        console.log(` plugin-local-ai/src/index.ts ModelType.TEXT_EMBEDDING embedding:`, embedding);
+
+        return embedding;
       } catch (error) {
         logger.error('Error in TEXT_EMBEDDING handler:', {
           error: error instanceof Error ? error.message : String(error),

@@ -96,7 +96,7 @@ export const recentMessagesProvider: Provider = {
 
     const recentMessages =
       formattedRecentMessages && formattedRecentMessages.length > 0
-        ? addHeader('# Conversation Messages', formattedRecentMessages)
+        ? addHeader('\n\n# Conversation Messages', formattedRecentMessages)
         : '';
 
     // Preload all necessary entities for both types of interactions

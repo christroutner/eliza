@@ -31,6 +31,7 @@ interface SettingUpdate {
 }
 
 const messageCompletionFooter = `\n# Instructions: Write the next message for {{agentName}}. Include the appropriate action from the list: {{actionNames}}
+
 Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 { "name": "{{agentName}}", "text": "<string>", "thought": "<string>", "actions": ["<string>", "<string>", "<string>"] }

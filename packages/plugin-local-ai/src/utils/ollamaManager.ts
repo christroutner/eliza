@@ -313,7 +313,7 @@ export class OllamaManager {
         },
       };
       // console.log('ollamaManager.ts generateText() request', request);
-      console.log('ollamaManager.ts generateText() prompt:\n', request.prompt);
+      console.log('\n\nollamaManager.ts generateText() prompt:\n', request.prompt);
 
       const response = await fetch(`${this.serverUrl}/api/generate`, {
         method: 'POST',

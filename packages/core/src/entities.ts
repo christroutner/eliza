@@ -128,6 +128,8 @@ export async function findEntityByName(
   message: Memory,
   state: State
 ): Promise<Entity | null> {
+  console.log(`--> packages/core/src/entities.ts findEntityByName()`);
+
   try {
     const room = state.data.room ?? (await runtime.getRoom(message.roomId));
     if (!room) {

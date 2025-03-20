@@ -68,6 +68,7 @@ The available options are RESPOND, IGNORE, or STOP. Choose the most appropriate 
 export const twitterVoiceHandlerTemplate = `# Task: Generate conversational voice dialog for {{agentName}}.
 {{providers}}
 # Instructions: Write the next message for {{agentName}}. Include the appropriate action from the list: {{actionNames}}
+
 Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 { "name": "{{agentName}}", "text": "<string>", "action": "<string>" }

@@ -532,9 +532,15 @@ export class AgentRuntime implements IAgentRuntime {
 
     // Process character knowledge
     if (this.character?.knowledge && this.character.knowledge.length > 0) {
+      console.log(
+        `--> packages/core/src/runtime.ts initialize() character.knowledge`,
+        this.character.knowledge
+      );
+
       const stringKnowledge = this.character.knowledge.filter(
         (item): item is string => typeof item === 'string'
       );
+      console.log(`--> packages/core/src/runtime.ts initialize() stringKnowledge`, stringKnowledge);
       await this.processCharacterKnowledge(stringKnowledge);
     }
   }
@@ -652,6 +658,8 @@ export class AgentRuntime implements IAgentRuntime {
   }
 
   async processCharacterKnowledge(items: string[]) {
+    console.log(`--> packages/core/src/runtime.ts processCharacterKnowledge() items:`, items);
+
     const processingPromises = items.map(async (item) => {
       await this.knowledgeProcessingSemaphore.acquire();
       try {
