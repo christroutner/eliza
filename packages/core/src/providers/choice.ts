@@ -23,6 +23,8 @@ interface OptionObject {
 export const choiceProvider: Provider = {
   name: 'CHOICE',
   get: async (runtime: IAgentRuntime, message: Memory): Promise<ProviderResult> => {
+    console.log(`--> packages/core/src/providers/choice.ts`);
+
     try {
       // Get all pending tasks for this room with options
       const pendingTasks = await runtime.getTasks({

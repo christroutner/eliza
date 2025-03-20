@@ -14,6 +14,8 @@ import type { IAgentRuntime, Memory, Provider, ProviderResult, State } from '../
 export const capabilitiesProvider: Provider = {
   name: 'CAPABILITIES',
   get: async (runtime: IAgentRuntime, _message: Memory): Promise<ProviderResult> => {
+    console.log(`--> packages/core/src/providers/capabilities.ts`);
+
     try {
       // Get all registered services
       const services = runtime.getAllServices();
@@ -48,7 +50,7 @@ export const capabilitiesProvider: Provider = {
         data: {
           capabilities,
         },
-        text: `# ${runtime.character.name}'s Capabilities\n\n${formattedCapabilities}`,
+        text: `\n# Capabilities for ${runtime.character.name}\n\n${formattedCapabilities}`,
       };
     } catch (error) {
       logger.error('Error in capabilities provider:', error);

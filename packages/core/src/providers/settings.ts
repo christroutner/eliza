@@ -106,6 +106,8 @@ export const settingsProvider: Provider = {
   name: 'SETTINGS',
   description: 'Current settings for the server',
   get: async (runtime: IAgentRuntime, message: Memory, state?: State): Promise<ProviderResult> => {
+    console.log(`--> packages/core/src/providers/settings.ts`);
+
     try {
       // Parallelize the initial database operations to improve performance
       // These operations can run simultaneously as they don't depend on each other

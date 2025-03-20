@@ -80,6 +80,8 @@ export const evaluatorsProvider: Provider = {
   description: 'Evaluators that can be used to evaluate the conversation after responding',
   private: true,
   get: async (runtime: IAgentRuntime, message: Memory, state: State) => {
+    console.log(`--> packages/core/src/providers/evaluators.ts`);
+
     // Get evaluators that validate for this message
     const evaluatorPromises = runtime.evaluators.map(async (evaluator: Evaluator) => {
       const result = await evaluator.validate(runtime, message, state);

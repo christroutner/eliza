@@ -25,6 +25,8 @@ const factsProvider: Provider = {
   description: 'Key facts that the agent knows',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory, _state?: State) => {
+    console.log(`--> packages/core/src/providers/facts.ts`);
+
     // Parallelize initial data fetching operations including recentInteractions
     const recentMessages = await runtime.getMemories({
       tableName: 'messages',

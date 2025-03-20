@@ -119,6 +119,8 @@ export const choiceAction: Action = {
     callback: HandlerCallback,
     responses: Memory[]
   ): Promise<void> => {
+    console.log(`--> packages/core/src/actions/choice.ts`);
+
     try {
       const pendingTasks = await runtime.getTasks({
         roomId: message.roomId,

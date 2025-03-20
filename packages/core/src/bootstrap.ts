@@ -113,6 +113,8 @@ const messageReceivedHandler = async ({
   message,
   callback,
 }: MessageReceivedHandlerParams): Promise<void> => {
+  console.log(`--> packages/core/src/bootstrap.ts messageReceivedHandler()`);
+
   // Generate a new response ID
   const responseId = v4();
   // Get or create the agent-specific map

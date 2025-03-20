@@ -491,7 +491,7 @@ const startAgents = async (options: { configure?: boolean; port?: number; charac
         logger.debug(`Successfully started ${startedAgents.length} agents from project`);
       }
     } else {
-      logger.debug('Project found but no agents defined, falling back to custom character');
+      logger.debug('Project found but no agents defined, falling back to default character');
       await startAgent(defaultCharacter, server);
     }
   } else if (isPlugin && pluginModule) {

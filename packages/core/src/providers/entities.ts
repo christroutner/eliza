@@ -7,6 +7,8 @@ export const entitiesProvider: Provider = {
   description: 'People in the current conversation',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory) => {
+    console.log(`--> packages/core/src/providers/entities.ts`);
+
     const { roomId, entityId } = message;
     // Get entities details
     const entitiesData = await getEntityDetails({ runtime, roomId });

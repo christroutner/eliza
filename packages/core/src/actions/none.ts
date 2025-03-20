@@ -16,6 +16,8 @@ export const noneAction: Action = {
   description:
     'Respond but perform no additional action. This is the default if the agent is speaking and not doing anything additional.',
   handler: async (_runtime: IAgentRuntime, _message: Memory): Promise<boolean> => {
+    console.log(`--> packages/core/src/actions/none.ts`);
+
     return true;
   },
   examples: [

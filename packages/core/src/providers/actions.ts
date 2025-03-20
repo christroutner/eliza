@@ -19,6 +19,8 @@ export const actionsProvider: Provider = {
   description: 'Possible response actions',
   position: -1,
   get: async (runtime: IAgentRuntime, message: Memory, state: State) => {
+    console.log(`--> packages/core/src/providers/actions.ts`);
+
     // Get actions that validate for this message
     const actionPromises = runtime.actions.map(async (action: Action) => {
       const result = await action.validate(runtime, message, state);

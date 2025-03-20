@@ -9,6 +9,8 @@ export const providersProvider: Provider = {
   name: 'PROVIDERS',
   description: 'List of all data providers the agent can use to get additional information',
   get: async (runtime: IAgentRuntime, _message: Memory) => {
+    console.log(`--> packages/core/src/providers/providers.ts`);
+
     // Filter providers with dynamic: true
     const dynamicProviders = runtime.providers.filter((provider) => provider.dynamic === true);
 

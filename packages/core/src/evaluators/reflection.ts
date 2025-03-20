@@ -146,6 +146,8 @@ function resolveEntity(entityId: UUID, entities: Entity[]): UUID {
   throw new Error(`Could not resolve entityId "${entityId}" to a valid UUID`);
 }
 async function handler(runtime: IAgentRuntime, message: Memory, state?: State) {
+  console.log(`--> packages/core/src/evaluators/reflection.ts`);
+
   const { agentId, roomId } = message;
 
   // Run all queries in parallel

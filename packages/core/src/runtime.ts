@@ -518,7 +518,9 @@ export class AgentRuntime implements IAgentRuntime {
     }
 
     // Check if TEXT_EMBEDDING model is registered
+    // const embeddingModel = null;
     const embeddingModel = this.getModel(ModelType.TEXT_EMBEDDING);
+    console.log('core/runtime.ts initialize() embeddingModel', embeddingModel);
     if (!embeddingModel) {
       this.runtimeLogger.warn(
         `[AgentRuntime][${this.character.name}] No TEXT_EMBEDDING model registered. Skipping embedding dimension setup.`
@@ -530,9 +532,15 @@ export class AgentRuntime implements IAgentRuntime {
 
     // Process character knowledge
     if (this.character?.knowledge && this.character.knowledge.length > 0) {
+      console.log(
+        `--> packages/core/src/runtime.ts initialize() character.knowledge`,
+        this.character.knowledge
+      );
+
       const stringKnowledge = this.character.knowledge.filter(
         (item): item is string => typeof item === 'string'
       );
+      console.log(`--> packages/core/src/runtime.ts initialize() stringKnowledge`, stringKnowledge);
       await this.processCharacterKnowledge(stringKnowledge);
     }
   }
@@ -607,6 +615,8 @@ export class AgentRuntime implements IAgentRuntime {
       modelContextSize: 4096,
     }
   ) {
+    console.log(`--> packages/core/src/runtime.ts addKnowledge()`);
+
     // First store the document
     const documentMemory: Memory = {
       id: item.id,
@@ -648,6 +658,8 @@ export class AgentRuntime implements IAgentRuntime {
   }
 
   async processCharacterKnowledge(items: string[]) {
+    console.log(`--> packages/core/src/runtime.ts processCharacterKnowledge() items:`, items);
+
     const processingPromises = items.map(async (item) => {
       await this.knowledgeProcessingSemaphore.acquire();
       try {

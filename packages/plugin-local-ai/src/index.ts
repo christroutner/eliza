@@ -625,7 +625,7 @@ class LocalAIManager {
       });
 
       // Log raw response for debugging
-      logger.info('Raw response structure:', {
+      logger.info('generateText()-root Raw response structure:', {
         responseLength: response.length,
         hasAction: response.includes('action'),
         hasThinkTag: response.includes('<think>'),
@@ -651,6 +651,8 @@ class LocalAIManager {
    */
   async generateEmbedding(text: string): Promise<number[]> {
     try {
+      console.log('generateEmbedding() text', text);
+
       // Lazy initialize embedding model
       await this.lazyInitEmbedding();
 
@@ -1124,7 +1126,10 @@ export const localAIPlugin: Plugin = {
         }
 
         // Pass the raw text directly to the framework without any manipulation
-        return await localAIManager.generateEmbedding(text);
+        const embedding = await localAIManager.generateEmbedding(text);
+        console.log(` plugin-local-ai/src/index.ts ModelType.TEXT_EMBEDDING embedding:`, embedding);
+
+        return embedding;
       } catch (error) {
         logger.error('Error in TEXT_EMBEDDING handler:', {
           error: error instanceof Error ? error.message : String(error),
@@ -1143,6 +1148,8 @@ export const localAIPlugin: Plugin = {
           hasSchema: !!params.schema,
           temperature: params.temperature,
         });
+
+        console.log(`\nprompt: \n${params.prompt}`);
 
         // Enhance the prompt to request JSON output
         let jsonPrompt = params.prompt;
@@ -1284,6 +1291,8 @@ export const localAIPlugin: Plugin = {
             modelType: ModelType.TEXT_LARGE,
           });
         }
+
+        console.log('ping01');
 
         // Extract and parse JSON from the text response
         try {

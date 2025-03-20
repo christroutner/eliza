@@ -31,6 +31,7 @@ interface SettingUpdate {
 }
 
 const messageCompletionFooter = `\n# Instructions: Write the next message for {{agentName}}. Include the appropriate action from the list: {{actionNames}}
+
 Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 { "name": "{{agentName}}", "text": "<string>", "thought": "<string>", "actions": ["<string>", "<string>", "<string>"] }
@@ -709,6 +710,8 @@ const updateSettingsAction: Action = {
     _options: any,
     callback: HandlerCallback
   ): Promise<void> => {
+    console.log(`--> packages/core/src/actions/settings.ts`);
+
     try {
       // Find the server where this user is the owner
       logger.info(`Handler looking for server for user ${message.entityId}`);

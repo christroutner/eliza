@@ -41,6 +41,7 @@ Here is the current post text again. Remember to include an action if the curren
 {{imageDescriptions}}
 
 # Instructions: Write the next message for {{agentName}}. Include the appropriate action from the list: {{actionNames}}
+
 Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 { "thought": "<string>", "name": "{{agentName}}", "text": "<string>", "action": "<string>" }

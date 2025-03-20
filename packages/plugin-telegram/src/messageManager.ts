@@ -75,7 +75,7 @@ export class MessageManager {
     try {
       let imageUrl: string | null = null;
 
-      logger.info(`Telegram Message: ${message}`);
+      logger.info(`processImage() Telegram Message: `, message);
 
       if ('photo' in message && message.photo?.length > 0) {
         const photo = message.photo[message.photo.length - 1];
@@ -254,6 +254,8 @@ export class MessageManager {
   public async handleMessage(ctx: Context): Promise<void> {
     // Type guard to ensure message exists
     if (!ctx.message || !ctx.from) return;
+
+    console.log('Telegram messageManager.ts handleMessage()');
 
     const message = ctx.message as Message.TextMessage;
 
@@ -521,6 +523,8 @@ export class MessageManager {
     replyToMessageId?: number
   ): Promise<Message.TextMessage[]> {
     try {
+      console.log('Telegram messageManager.ts sendMessage()');
+
       // Create a context-like object for sending
       const ctx = {
         chat: { id: chatId },

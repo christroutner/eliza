@@ -125,6 +125,8 @@ const updateRoleAction: Action = {
     _options: any,
     callback: HandlerCallback
   ): Promise<void> => {
+    console.log(`--> packages/core/src/actions/roles.ts`);
+
     // Extract needed values from message and state
     const { roomId } = message;
     const channelType = message.content.channelType as ChannelType;

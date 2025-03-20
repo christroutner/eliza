@@ -56,6 +56,8 @@ export const unfollowRoomAction: Action = {
     _callback?: HandlerCallback,
     _responses?: Memory[]
   ) => {
+    console.log(`--> packages/core/src/actions/unfollowRoom.ts`);
+
     async function _shouldUnfollow(state: State): Promise<boolean> {
       const shouldUnfollowPrompt = composePromptFromState({
         state,

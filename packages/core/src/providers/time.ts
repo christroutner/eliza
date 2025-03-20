@@ -12,6 +12,8 @@ import type { IAgentRuntime, Memory, Provider, State } from '../types';
 export const timeProvider: Provider = {
   name: 'TIME',
   get: async (_runtime: IAgentRuntime, _message: Memory) => {
+    console.log(`--> packages/core/src/providers/time.ts`);
+
     const currentDate = new Date();
 
     // Get UTC time since bots will be communicating with users around the global

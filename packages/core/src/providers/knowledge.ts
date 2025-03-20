@@ -17,6 +17,8 @@ export const knowledgeProvider: Provider = {
   description: 'Knowledge from the knowledge base that the agent knows',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory) => {
+    console.log(`--> packages/core/src/providers/knowledge.ts`);
+
     const knowledgeData = await runtime.getKnowledge(message);
 
     const knowledge =

@@ -375,7 +375,7 @@ export class StudioLMManager {
       let responseText = result.choices[0].message.content;
 
       // Log raw response for debugging
-      logger.info('Raw response structure:', {
+      logger.info('studiolmManager.ts generateText() zRaw response structure:', {
         responseLength: responseText.length,
         hasAction: responseText.includes('action'),
         hasThinkTag: responseText.includes('<think>'),

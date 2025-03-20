@@ -56,6 +56,8 @@ export const unmuteRoomAction: Action = {
     _callback?: HandlerCallback,
     _responses?: Memory[]
   ) => {
+    console.log(`--> packages/core/src/actions/unmuteRoom.ts`);
+
     async function _shouldUnmute(state: State): Promise<boolean> {
       const shouldUnmutePrompt = composePromptFromState({
         state,
