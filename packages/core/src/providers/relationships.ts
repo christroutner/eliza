@@ -77,7 +77,7 @@ async function formatRelationships(runtime: IAgentRuntime, relationships: Relati
 const relationshipsProvider: Provider = {
   name: 'RELATIONSHIPS',
   description:
-    'Relationships between {{agentName}} and other people, or between other people that {{agentName}} has observed interacting with',
+    'Relationships between Ben and other people, or between other people that Ben has observed interacting with',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory) => {
     console.log(`--> packages/core/src/providers/relationships.ts`);

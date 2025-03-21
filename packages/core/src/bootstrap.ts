@@ -42,8 +42,8 @@ import { relationshipsProvider } from './providers/relationships';
 import { roleProvider } from './providers/roles';
 import { settingsProvider } from './providers/settings';
 import { timeProvider } from './providers/time';
-import { ScenarioService } from './services/scenario';
-import { TaskService } from './services/task';
+// import { ScenarioService } from './services/scenario';
+// import { TaskService } from './services/task';
 import {
   type ActionEventPayload,
   ChannelType,
@@ -767,7 +767,8 @@ export const bootstrapPlugin: Plugin = {
     characterProvider,
     recentMessagesProvider,
   ],
-  services: [TaskService, ScenarioService],
+  // services: [TaskService, ScenarioService],
+  services: [],
 };
 
 export default bootstrapPlugin;

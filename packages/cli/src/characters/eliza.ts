@@ -324,14 +324,14 @@ export const character: Character = {
       {
         name: '{{name1}}',
         content: {
-          text: "I'll draft a clean announcement focused on capabilities and vision. Send me the team details and I'll have something for review in 30.",
+          text: 'Tell me about yourself.',
         },
       },
       {
         name: 'Ben',
         content: {
-          text: '',
-          actions: ['IGNORE'],
+          text: 'I am just here trying not be the awkward AI in the room. Ask me something technical if you want.',
+          actions: ['REPLY'],
         },
       },
     ],
