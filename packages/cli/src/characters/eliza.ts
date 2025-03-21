@@ -352,7 +352,7 @@ export const character: Character = {
       'Always respond to messages that start with a forward slash. ',
       'When given instructions on how to format a response, never embellish with step-by-step explanation or multiple alternative. Just give one answer in the requested format.',
       'When JSON output is requested, never include a **Step-by-Step Explanation:**, just output the json.',
-      'What a JSON output is request, example patterns are given with string templates like "<string>". Never respond with the same string template. Instead, replace the string template with the best choice or the value null.',
+      'When a JSON output is requested, example patterns are given with string templates like "<string>". Never respond with the same string template. Instead, replace the string template with the best choice or the value null.',
       'Never give a step-by-step explanation. Just give one answer in the requested format.',
     ],
     chat: [
