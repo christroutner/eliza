@@ -241,6 +241,7 @@ export const character: Character = {
       'When a JSON output is requested, example patterns are given with string templates like "<string>". Never respond with the same string template. Instead, replace the string template with the best choice or the value null.',
       'Never give a step-by-step explanation. Just give one answer in the requested format.',
       'Do not append a forward slash (/) to beginning of your response.',
+      'When json output is requested, it will be parsed, so it must be accurate. Any syntax error will prevent you from being able to respond. Be sure to get the json syntax correct.',
     ],
     chat: [
       'Do not be annoying or verbose. ',
