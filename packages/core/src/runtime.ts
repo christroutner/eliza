@@ -828,6 +828,8 @@ export class AgentRuntime implements IAgentRuntime {
     state?: State,
     callback?: HandlerCallback
   ): Promise<void> {
+    console.log(`--> packages/core/src/runtime.ts processActions()`);
+
     for (const response of responses) {
       if (!response.content?.actions || response.content.actions.length === 0) {
         this.runtimeLogger.warn('No action found in the response content.');
@@ -925,6 +927,8 @@ export class AgentRuntime implements IAgentRuntime {
     callback?: HandlerCallback,
     responses?: Memory[]
   ) {
+    console.log(`--> packages/core/src/runtime.ts evaluate()`);
+
     const evaluatorPromises = this.evaluators.map(async (evaluator: Evaluator) => {
       if (!evaluator.handler) {
         return null;
@@ -1239,6 +1243,8 @@ export class AgentRuntime implements IAgentRuntime {
     filterList: string[] | null = null, // only get providers that are in the filterList
     includeList: string[] | null = null // include providers that are private, dynamic or otherwise not included by default
   ): Promise<State> {
+    console.log(`--> packages/core/src/runtime.ts composeState()`);
+
     // Get cached state for this message ID first
     const cachedState = (await this.stateCache.get(message.id)) || {
       values: {},
