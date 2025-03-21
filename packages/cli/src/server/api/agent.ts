@@ -1622,6 +1622,8 @@ export function agentRouter(
   router.post('/:agentId/memories/upload-knowledge', upload.array('files'), async (req, res) => {
     const agentId = validateUuid(req.params.agentId);
 
+    console.log(`POST /:agentId/memories/upload-knowledge called for agent ${agentId}`);
+
     if (!agentId) {
       res.status(400).json({
         success: false,

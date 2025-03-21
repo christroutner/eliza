@@ -454,6 +454,8 @@ export class AgentRuntime implements IAgentRuntime {
       // No need to transform agent's own ID
       const agentEntity = await this.adapter.getEntityById(this.agentId);
 
+      console.log(`Agent ID: ${this.agentId}`);
+
       if (!agentEntity) {
         const created = await this.createEntity({
           id: this.agentId,
@@ -597,6 +599,7 @@ export class AgentRuntime implements IAgentRuntime {
           .filter(Boolean)
       ),
     ];
+    console.log('runtime.ts/getKnowledge() uniqueSources', uniqueSources);
 
     const knowledgeDocuments = await Promise.all(
       uniqueSources.map((source) => this.getMemoryById(source as UUID))
@@ -629,15 +632,18 @@ export class AgentRuntime implements IAgentRuntime {
         timestamp: Date.now(),
       },
     };
+    // console.log('documentMemory', documentMemory)
 
-    await this.createMemory(documentMemory, 'documents');
-
+    const documentMemRetVal = await this.createMemory(documentMemory, 'documents');
+    // console.log('documentMemRetVal', documentMemRetVal)
     // Create fragments using splitChunks
     const fragments = await splitChunks(item.content.text, options.targetTokens, options.overlap);
 
     // Store each fragment with link to source document
     for (let i = 0; i < fragments.length; i++) {
       const embedding = await this.useModel(ModelType.TEXT_EMBEDDING, fragments[i]);
+      // console.log('embedding', embedding)
+
       const fragmentMemory: Memory = {
         id: createUniqueUuid(this, `${item.id}-fragment-${i}`),
         agentId: this.agentId,
@@ -652,6 +658,7 @@ export class AgentRuntime implements IAgentRuntime {
           timestamp: Date.now(),
         },
       };
+      // console.log('fragmentMemory', fragmentMemory)
 
       await this.createMemory(fragmentMemory, 'knowledge');
     }

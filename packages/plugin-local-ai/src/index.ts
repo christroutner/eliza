@@ -651,7 +651,7 @@ class LocalAIManager {
    */
   async generateEmbedding(text: string): Promise<number[]> {
     try {
-      console.log('generateEmbedding() text', text);
+      console.log('generateEmbedding() text: ', text);
 
       // Lazy initialize embedding model
       await this.lazyInitEmbedding();
@@ -1127,7 +1127,7 @@ export const localAIPlugin: Plugin = {
 
         // Pass the raw text directly to the framework without any manipulation
         const embedding = await localAIManager.generateEmbedding(text);
-        console.log(` plugin-local-ai/src/index.ts ModelType.TEXT_EMBEDDING embedding:`, embedding);
+        // console.log(` plugin-local-ai/src/index.ts ModelType.TEXT_EMBEDDING embedding:`, embedding);
 
         return embedding;
       } catch (error) {

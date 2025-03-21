@@ -298,7 +298,7 @@ Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 {
     "name": "{{agentName}}",
-	"reasoning": "<string>",
+    "reasoning": "<string>",
     "action": "RESPOND" | "IGNORE" | "STOP",
     "providers": ["<string>", "<string>", ...]
 }
