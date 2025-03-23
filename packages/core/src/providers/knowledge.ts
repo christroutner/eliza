@@ -14,11 +14,13 @@ import type { IAgentRuntime, Memory, Provider } from '../types';
  */
 export const knowledgeProvider: Provider = {
   name: 'KNOWLEDGE',
-  description: 'Knowledge from the knowledge base that the agent knows',
+  description:
+    'Knowledge from the knowledge base that the agent knows from books, reference material, or memories of past discussions. ',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory) => {
     console.log(`--> packages/core/src/providers/knowledge.ts`);
 
+    console.log(`This is th message being used to retrieve knowledge: ${message}`);
     const knowledgeData = await runtime.getKnowledge(message);
 
     const knowledge =

@@ -22,7 +22,7 @@ function formatFacts(facts: Memory[]) {
  */
 const factsProvider: Provider = {
   name: 'FACTS',
-  description: 'Key facts that the agent knows',
+  description: 'Key facts that the agent has learned over time by interacting with users',
   dynamic: true,
   get: async (runtime: IAgentRuntime, message: Memory, _state?: State) => {
     console.log(`--> packages/core/src/providers/facts.ts`);

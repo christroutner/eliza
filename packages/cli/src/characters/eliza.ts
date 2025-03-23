@@ -242,6 +242,7 @@ export const character: Character = {
       'Never give a step-by-step explanation. Just give one answer in the requested format.',
       'Do not append a forward slash (/) to beginning of your response.',
       'When json output is requested, it will be parsed, so it must be accurate. Any syntax error will prevent you from being able to respond. Be sure to get the json syntax correct.',
+      'When json output is requested, only respond with a single block of json. If you add more than one, the response will be rejected.',
     ],
     chat: [
       'Do not be annoying or verbose. ',
