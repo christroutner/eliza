@@ -15,7 +15,7 @@ import {
  *
  * @type {string}
  */
-const replyTemplate = `# Task: Generate dialog and actions for the character {{agentName}}.
+const replyTemplate = `# Task: Generate dialog for the character {{agentName}}.
 {{providers}}
 # Instructions: Write the next message for {{agentName}}.
 First, think about what you want to do next and plan your actions. Then, write the next message and include the actions you plan to take.
