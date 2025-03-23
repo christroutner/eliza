@@ -1144,7 +1144,7 @@ export const localAIPlugin: Plugin = {
     [ModelType.OBJECT_SMALL]: async (runtime: IAgentRuntime, params: ObjectGenerationParams) => {
       try {
         logger.info('OBJECT_SMALL handler - Processing request:', {
-          prompt: params.prompt,
+          // prompt: params.prompt,
           hasSchema: !!params.schema,
           temperature: params.temperature,
         });
@@ -1260,10 +1260,11 @@ export const localAIPlugin: Plugin = {
     [ModelType.OBJECT_LARGE]: async (runtime: IAgentRuntime, params: ObjectGenerationParams) => {
       try {
         logger.info('OBJECT_LARGE handler - Processing request:', {
-          prompt: params.prompt,
+          // prompt: params.prompt,
           hasSchema: !!params.schema,
           temperature: params.temperature,
         });
+        console.log(`\nprompt: `, params.prompt);
 
         // Enhance the prompt to request JSON output
         let jsonPrompt = params.prompt;

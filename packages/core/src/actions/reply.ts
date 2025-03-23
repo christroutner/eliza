@@ -27,7 +27,7 @@ These are the available valid actions: {{actionNames}}
 Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 {
-    "thought": "<string>",
+    "reasoning": "<string>",
     "message": "<string>"
 }
 \`\`\`

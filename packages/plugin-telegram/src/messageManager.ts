@@ -392,7 +392,8 @@ export class MessageManager {
 
           return memories;
         } catch (error) {
-          logger.error('Error in message callback:', error);
+          logger.error('Error in Telegram message callback:', error);
+          console.log('Telegram messageManager.ts handleMessage() error content', content);
           return [];
         }
       };

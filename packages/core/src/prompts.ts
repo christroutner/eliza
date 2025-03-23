@@ -49,6 +49,8 @@ export const composePrompt = ({
   state: { [key: string]: string };
   template: TemplateType;
 }) => {
+  console.log('composePrompt() state', state);
+
   const templateStr = typeof template === 'function' ? template({ state }) : template;
   const templateFunction = handlebars.compile(templateStr);
   const output = composeRandomUser(templateFunction(state), 10);
@@ -299,8 +301,7 @@ Response format should be formatted in a valid JSON block like this:
 {
     "name": "{{agentName}}",
     "reasoning": "<string>",
-    "action": "RESPOND" | "IGNORE" | "STOP",
-    "providers": ["<string>", "<string>", ...]
+    "action": "RESPOND" | "IGNORE" | "STOP"
 }
 \`\`\`
 Your response should include the valid JSON block and nothing else.`;
@@ -318,7 +319,7 @@ These are the available valid actions: {{actionNames}}
 Response format should be formatted in a valid JSON block like this:
 \`\`\`json
 {
-    "thought": "<string>",
+    "reasoning": "<string>",
     "actions": ["<string>", "<string>", ...],
     "providers": ["<string>", "<string>", ...]
 }
