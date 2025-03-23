@@ -332,6 +332,11 @@ export class OllamaManager {
       if (!result.response) {
         throw new Error('No valid response content received from Ollama');
       }
+      // console.log('ollamaManager.ts generateText() raw result', result);
+
+      const promptTokenLength = result.prompt_eval_count;
+      const responseTokenLength = result.eval_count;
+      const contextLength = promptTokenLength + responseTokenLength;
 
       let responseText = result.response;
 
@@ -340,6 +345,9 @@ export class OllamaManager {
         responseLength: responseText.length,
         hasAction: responseText.includes('action'),
         hasThinkTag: responseText.includes('<think>'),
+        promptTokenLength,
+        responseTokenLength,
+        contextLength,
       });
 
       console.log(`\nOllama response: \n${responseText}\n`);

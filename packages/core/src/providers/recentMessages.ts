@@ -97,8 +97,8 @@ export const recentMessagesProvider: Provider = {
 
     const metaData = message.metadata as CustomMetadata;
     const recieveMessage = addHeader(
-      '# Received Message:',
-      `${metaData?.entityName || 'unknown'}: ${message.content.text}`
+      '\n# Received Message:',
+      `${metaData?.entityName || ''}: ${message.content.text}`
     );
 
     const recentMessages =

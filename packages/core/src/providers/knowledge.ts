@@ -20,7 +20,7 @@ export const knowledgeProvider: Provider = {
   get: async (runtime: IAgentRuntime, message: Memory) => {
     console.log(`--> packages/core/src/providers/knowledge.ts`);
 
-    console.log(`This is th message being used to retrieve knowledge: ${message}`);
+    console.log(`This is th message being used to retrieve knowledge: `, message);
     const knowledgeData = await runtime.getKnowledge(message);
 
     const knowledge =
