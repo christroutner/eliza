@@ -191,6 +191,7 @@ export class AgentRuntime implements IAgentRuntime {
       this.runtimeLogger.error('*** registerPlugin plugin is undefined');
       throw new Error('*** registerPlugin plugin is undefined');
     }
+    console.log('-->runtime.ts registerPlugin() plugin.name: ', plugin.name);
 
     // Add to plugins array if not already present - but only if it was not passed there initially
     // (otherwise we can't add to readonly array)
@@ -306,6 +307,7 @@ export class AgentRuntime implements IAgentRuntime {
   }
 
   async initialize() {
+    console.log('-->runtime.ts initialize()');
     if (this.isInitialized) {
       this.runtimeLogger.warn('Agent already initialized');
       return;
@@ -444,6 +446,8 @@ export class AgentRuntime implements IAgentRuntime {
   }
 
   async getKnowledge(message: Memory): Promise<KnowledgeItem[]> {
+    console.log('-->runtime.ts getKnowledge()');
+
     // Add validation for message
     if (!message?.content?.text) {
       this.runtimeLogger.warn('Invalid message for knowledge query:', {
@@ -693,6 +697,8 @@ export class AgentRuntime implements IAgentRuntime {
     state?: State,
     callback?: HandlerCallback
   ): Promise<void> {
+    console.log('-->runtime.ts processActions()');
+
     for (const response of responses) {
       if (!response.content?.actions || response.content.actions.length === 0) {
         this.runtimeLogger.warn('No action found in the response content.');
@@ -790,6 +796,8 @@ export class AgentRuntime implements IAgentRuntime {
     callback?: HandlerCallback,
     responses?: Memory[]
   ) {
+    console.log('-->runtime.ts evaluate()');
+
     const evaluatorPromises = this.evaluators.map(async (evaluator: Evaluator) => {
       if (!evaluator.handler) {
         return null;
@@ -861,6 +869,8 @@ export class AgentRuntime implements IAgentRuntime {
     worldId?: UUID;
     userId?: UUID;
   }) {
+    console.log('-->runtime.ts ensureConnection()');
+
     if (entityId === this.agentId) {
       throw new Error('Agent should not connect to itself');
     }
@@ -1107,6 +1117,8 @@ export class AgentRuntime implements IAgentRuntime {
     filterList: string[] | null = null, // only get providers that are in the filterList
     includeList: string[] | null = null // include providers that are private, dynamic or otherwise not included by default
   ): Promise<State> {
+    console.log('-->runtime.ts composeState()');
+
     // Get cached state for this message ID first
     const cachedState = (await this.stateCache.get(message.id)) || {
       values: {},
@@ -1251,6 +1263,8 @@ export class AgentRuntime implements IAgentRuntime {
   }
 
   registerModel(modelType: ModelTypeName, handler: (params: any) => Promise<any>) {
+    console.log('-->runtime.ts registerModel() modelType: ', modelType);
+
     const modelKey = typeof modelType === 'string' ? modelType : ModelType[modelType];
     if (!this.models.has(modelKey)) {
       this.models.set(modelKey, []);
@@ -1261,6 +1275,8 @@ export class AgentRuntime implements IAgentRuntime {
   getModel(
     modelType: ModelTypeName
   ): ((runtime: IAgentRuntime, params: any) => Promise<any>) | undefined {
+    console.log('-->runtime.ts getModel() modelType: ', modelType);
+
     const modelKey = typeof modelType === 'string' ? modelType : ModelType[modelType];
     const models = this.models.get(modelKey);
     if (!models?.length) {
@@ -1281,6 +1297,8 @@ export class AgentRuntime implements IAgentRuntime {
     modelType: T,
     params: Omit<ModelParamsMap[T], 'runtime'> | any
   ): Promise<R> {
+    console.log('-->runtime.ts useModel() modelType: ', modelType);
+
     const modelKey = typeof modelType === 'string' ? modelType : ModelType[modelType];
     const model = this.getModel(modelKey);
     if (!model) {
