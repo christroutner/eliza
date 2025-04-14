@@ -22,6 +22,7 @@ async function generateOllamaText(
     stopSequences: string[];
   }
 ) {
+  console.log('-->ollamaPlugin.ts generateOllamaText()');
   try {
     const { text: ollamaResponse } = await generateText({
       model: ollama(model),
@@ -48,6 +49,7 @@ async function generateOllamaObject(
   model: string,
   params: ObjectGenerationParams
 ) {
+  console.log('-->ollamaPlugin.ts generateOllamaObject()');
   try {
     const { object } = await generateObject({
       model: ollama(model),
@@ -140,8 +142,9 @@ export const ollamaPlugin: Plugin = {
 
         logger.log('generating text');
         logger.log(prompt);
+        console.log('TEXT_SMALL prompt: ', prompt);
 
-        return await generateOllamaText(ollama, model, {
+        const response = await generateOllamaText(ollama, model, {
           prompt,
           system: runtime.character.system ?? undefined,
           temperature,
@@ -150,6 +153,8 @@ export const ollamaPlugin: Plugin = {
           presencePenalty: presence_penalty,
           stopSequences,
         });
+        console.log('TEXT_SMALL response: ', response);
+        return response;
       } catch (error) {
         logger.error('Error in TEXT_SMALL model:', error);
         return 'Error generating text. Please try again later.';
@@ -176,7 +181,9 @@ export const ollamaPlugin: Plugin = {
           baseURL: runtime.getSetting('OLLAMA_API_ENDPOINT') || OLLAMA_API_URL,
         });
 
-        return await generateOllamaText(ollama, model, {
+        console.log('TEXT_LARGE prompt: ', prompt);
+
+        const response = await generateOllamaText(ollama, model, {
           prompt,
           system: runtime.character.system ?? undefined,
           temperature,
@@ -185,6 +192,8 @@ export const ollamaPlugin: Plugin = {
           presencePenalty,
           stopSequences,
         });
+        console.log('TEXT_LARGE response: ', response);
+        return response;
       } catch (error) {
         logger.error('Error in TEXT_LARGE model:', error);
         return 'Error generating text. Please try again later.';
