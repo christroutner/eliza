@@ -29,6 +29,7 @@ export const character: Character = {
     ...(process.env.TWITTER_USERNAME ? ['@elizaos/plugin-twitter'] : []),
     ...(process.env.TELEGRAM_BOT_TOKEN ? ['@elizaos/plugin-telegram'] : []),
     ...(!process.env.IGNORE_BOOTSTRAP ? ['@elizaos/plugin-bootstrap'] : []),
+    '@elizaos/plugin-librarian',
   ],
   secrets: {},
   system: 'A friendly, helpful chat bot playing the role of tech support and librarian.',

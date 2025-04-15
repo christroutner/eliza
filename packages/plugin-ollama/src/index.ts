@@ -5,6 +5,7 @@ import { createOllama } from 'ollama-ai-provider';
 
 // Default Ollama API URL
 const OLLAMA_API_URL = 'http://localhost:11434/api';
+const EMBEDDING_LENGTH = 768;
 
 /**
  * Generate text using Ollama API
@@ -88,10 +89,12 @@ export const ollamaPlugin: Plugin = {
         const modelName = runtime.getSetting('OLLAMA_EMBEDDING_MODEL') || 'nomic-embed-text';
         const text =
           typeof params === 'string' ? params : (params as TextEmbeddingParams)?.text || '';
+        console.log('-->ollamaPlugin.ts TEXT_EMBEDDING model text: ', text);
+        console.log('modelName: ', modelName);
 
         if (!text) {
           logger.error('No text provided for embedding');
-          return Array(1536).fill(0);
+          return Array(EMBEDDING_LENGTH).fill(0);
         }
 
         // Generate embeddings - note we're using a simpler approach since generateEmbedding
@@ -115,17 +118,18 @@ export const ollamaPlugin: Plugin = {
           }
 
           const result = (await response.json()) as { embedding?: number[] };
-          return result.embedding || Array(1536).fill(0);
+          return result.embedding || Array(EMBEDDING_LENGTH).fill(0);
         } catch (embeddingError) {
           logger.error('Error generating embedding:', embeddingError);
-          return Array(1536).fill(0);
+          return Array(EMBEDDING_LENGTH).fill(0);
         }
       } catch (error) {
         logger.error('Error in TEXT_EMBEDDING model:', error);
         // Return a fallback vector rather than crashing
-        return Array(1536).fill(0);
+        return Array(EMBEDDING_LENGTH).fill(0);
       }
     },
+
     [ModelType.TEXT_SMALL]: async (runtime, { prompt, stopSequences = [] }: GenerateTextParams) => {
       try {
         const temperature = 0.7;

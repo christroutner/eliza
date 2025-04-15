@@ -352,7 +352,7 @@ export abstract class BaseDrizzleAdapter<
    *
    * @param {UUID} agentId - The UUID of the agent to be deleted.
    * @returns {Promise<boolean>} - A boolean indicating if the deletion was successful.
-   */  async deleteAgent(agentId: UUID): Promise<boolean> {
+   */ async deleteAgent(agentId: UUID): Promise<boolean> {
     logger.debug(`[DB] Starting deletion of agent with ID: ${agentId}`);
 
     return this.withDatabase(async () => {
@@ -1413,7 +1413,8 @@ export abstract class BaseDrizzleAdapter<
     });
 
     const memoryId = memory.id ?? (v4() as UUID);
-
+    console.log('ping20');
+    console.log('memoryId', memoryId);
     const existing = await this.getMemoryById(memoryId);
     if (existing) {
       logger.debug('Memory already exists, skipping creation:', {
@@ -1421,7 +1422,7 @@ export abstract class BaseDrizzleAdapter<
       });
       return memoryId;
     }
-
+    console.log('ping21');
     let isUnique = true;
     if (memory.embedding && Array.isArray(memory.embedding)) {
       const similarMemories = await this.searchMemoriesByEmbedding(memory.embedding, {
@@ -1432,7 +1433,7 @@ export abstract class BaseDrizzleAdapter<
       });
       isUnique = similarMemories.length === 0;
     }
-
+    console.log('ping22');
     const contentToInsert =
       typeof memory.content === 'string' ? JSON.parse(memory.content) : memory.content;
 
@@ -1450,7 +1451,7 @@ export abstract class BaseDrizzleAdapter<
           createdAt: memory.createdAt,
         },
       ]);
-
+      console.log('ping23');
       if (memory.embedding && Array.isArray(memory.embedding)) {
         const embeddingValues: Record<string, unknown> = {
           id: v4(),
@@ -1461,10 +1462,11 @@ export abstract class BaseDrizzleAdapter<
         const cleanVector = memory.embedding.map((n) =>
           Number.isFinite(n) ? Number(n.toFixed(6)) : 0
         );
-
+        console.log('ping24');
         embeddingValues[this.embeddingDimension] = cleanVector;
-
+        console.log('ping24.5');
         await tx.insert(embeddingTable).values([embeddingValues]);
+        console.log('ping25');
       }
     });
 

@@ -491,6 +491,7 @@ export class AgentRuntime implements IAgentRuntime {
       targetTokens: 1500,
       overlap: 200,
       modelContextSize: 4096,
+      // modelContextSize: 1536,
     }
   ) {
     // First store the document
@@ -505,15 +506,19 @@ export class AgentRuntime implements IAgentRuntime {
         timestamp: Date.now(),
       },
     };
+    console.log('ping10');
 
     await this.createMemory(documentMemory, 'documents');
-
+    console.log('ping11');
     // Create fragments using splitChunks
     const fragments = await splitChunks(item.content.text, options.targetTokens, options.overlap);
-
+    console.log('ping12');
     // Store each fragment with link to source document
     for (let i = 0; i < fragments.length; i++) {
       const embedding = await this.useModel(ModelType.TEXT_EMBEDDING, fragments[i]);
+      console.log('embedding', embedding);
+      console.log('embedding.length', embedding.length);
+
       const fragmentMemory: Memory = {
         id: createUniqueUuid(this, `${item.id}-fragment-${i}`),
         agentId: this.agentId,
@@ -528,8 +533,9 @@ export class AgentRuntime implements IAgentRuntime {
           timestamp: Date.now(),
         },
       };
-
+      console.log('ping13');
       await this.createMemory(fragmentMemory, 'knowledge');
+      console.log('ping14');
     }
   }
 
@@ -1422,6 +1428,9 @@ export class AgentRuntime implements IAgentRuntime {
       if (!embedding || !embedding.length) {
         throw new Error(`[AgentRuntime][${this.character.name}] Invalid embedding received`);
       }
+
+      console.log('=====----> embedding: ', embedding);
+      console.log('embedding.length: ', embedding.length);
 
       this.runtimeLogger.debug(
         `[AgentRuntime][${this.character.name}] Setting embedding dimension: ${embedding.length}`
