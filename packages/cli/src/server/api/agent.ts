@@ -1504,7 +1504,7 @@ export function agentRouter(
         try {
           // Read file content
           const content = fs.readFileSync(file.path, 'utf8');
-          console.log('ping01');
+
           // Format the content with Path: prefix like in the devRel/index.ts example
           const relativePath = file.originalname;
           const formattedContent = `Path: ${relativePath}\n\n${content}`;
@@ -1532,7 +1532,7 @@ export function agentRouter(
               source: 'upload',
             },
           };
-          console.log('ping02');
+
           // Add knowledge to agent
           await runtime.addKnowledge(knowledgeItem, {
             targetTokens: 1500,
@@ -1544,7 +1544,7 @@ export function agentRouter(
           if (file.path && fs.existsSync(file.path)) {
             fs.unlinkSync(file.path);
           }
-          console.log('ping03');
+
           results.push({
             id: knowledgeId,
             filename: relativePath,

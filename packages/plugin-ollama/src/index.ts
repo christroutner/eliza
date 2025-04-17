@@ -89,8 +89,8 @@ export const ollamaPlugin: Plugin = {
         const modelName = runtime.getSetting('OLLAMA_EMBEDDING_MODEL') || 'nomic-embed-text';
         const text =
           typeof params === 'string' ? params : (params as TextEmbeddingParams)?.text || '';
-        console.log('-->ollamaPlugin.ts TEXT_EMBEDDING model text: ', text);
-        console.log('modelName: ', modelName);
+        // console.log('-->ollamaPlugin.ts TEXT_EMBEDDING model text: ', text);
+        // console.log('modelName: ', modelName);
 
         if (!text) {
           logger.error('No text provided for embedding');
